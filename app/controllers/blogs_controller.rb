@@ -61,6 +61,10 @@ class BlogsController < ApplicationController
     end
   end
 
+  def search_rakuten_api(keyword = '軽井沢')
+    @courses = RakutenWebService::Gora::Course.search(keyword: keyword)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_blog
