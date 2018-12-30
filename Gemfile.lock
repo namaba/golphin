@@ -115,6 +115,12 @@ GEM
     nio4r (2.3.1)
     nokogiri (1.9.1)
       mini_portile2 (~> 2.4.0)
+    pry (0.12.2)
+      coderay (~> 1.1.0)
+      method_source (~> 0.9.0)
+    pry-byebug (3.6.0)
+      byebug (~> 10.0)
+      pry (~> 0.10)
     public_suffix (3.0.3)
     puma (3.12.0)
     rack (2.0.6)
@@ -145,6 +151,7 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.19.0, < 2.0)
     rake (12.3.2)
+    rakuten_web_service (1.9.2)
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
@@ -222,8 +229,10 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   mysql2
+  pry-byebug
   puma (~> 3.11)
   rails (~> 5.2.2)
+  rakuten_web_service
   sass-rails (~> 5.0)
   selenium-webdriver
   slim-rails
