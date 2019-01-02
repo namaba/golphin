@@ -1,7 +1,7 @@
 = @courses.count
 - @courses.each do |c|
-  p= c.evaluation
-  p= c.golf_course_name
+  p.text-danger= c.evaluation
+  .btn.btn-danger= c.golf_course_name
   p= c.golf_course_caption
   p= c.address
   p= link_to 'リンク', c.golf_course_detail_url, target: "_new"
