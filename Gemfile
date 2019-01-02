@@ -60,6 +60,7 @@ group :development do
   gem 'pry-byebug'
   gem 'rack-lineprof'
   gem 'rack-mini-profiler', require: false
+  gem 'annotate'
 end
 
 group :test do
