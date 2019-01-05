@@ -1,5 +1,5 @@
-= @courses.count
-= image_tag(@courses.first.golf_course_image_url)
+= @plans.count
+= @plans.first.inspect
 / - @courses.each do |c|
 /   p.text-danger= c.evaluation
 /   .btn.btn-danger= c.golf_course_name

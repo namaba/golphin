@@ -65,6 +65,12 @@ class BlogsController < ApplicationController
     @courses = RakutenWebService::Gora::Course.search(keyword: keyword)
   end
 
+  def search_plans_api
+    next_week = Date.today + 7
+    chiba_and_kanagawa = '12,14'
+    @plans = RWS::Gora::Plan.search(areaCode: chiba_and_kanagawa, playDate: next_week.strftime('%Y-%m-%d'))
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_blog
