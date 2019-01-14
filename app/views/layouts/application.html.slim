@@ -13,5 +13,5 @@ html
     - flash.each do |key, value|
       div class="alert alert-#{key}" = value
 
-    = yield
+    .container= yield
     = render 'layouts/footer'
