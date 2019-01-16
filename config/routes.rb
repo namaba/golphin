@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root 'blogs#index'
+  # root 'blogs#index'
+  root 'homes#index'
 
   resources :blogs
   get 'search_rakuten_api', to: 'blogs#search_rakuten_api'
@@ -8,5 +9,6 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show]
 
   resources :homes
+  get 'results', to: 'homes#results'
 
 end
