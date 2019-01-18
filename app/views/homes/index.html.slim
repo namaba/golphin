@@ -4,6 +4,12 @@
       | ゴルフ場大手予約サイト3社を比較！
       br>/
       | 最高のプランで最高のゴルフを
+
+  = simple_form_for :conditions, url: homes_path, html: { id: :areaForm2} do |f|
+    = f.input :area, as: :string
+    = f.input :play_date, as: :date, html5: true
+    = f.button :submit
+
   /! intro
   section#search
     .inner
