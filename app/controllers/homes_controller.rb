@@ -10,4 +10,10 @@ class HomesController < ApplicationController
   def results
   end
 
+  def results_2
+  end
+
+  def create
+    raise params.inspect
+  end
 end
