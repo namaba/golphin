@@ -150,19 +150,19 @@ body #contents .main_contents .inner #card_wrap .card .click_link {
 }
 
 body #contents .main_contents .inner #card_wrap .card .click_link .star {
-  width: 100%;
+  width: 35%;
   height: 5vw;
-  background: url(../img/star_sheet.png) no-repeat;
+  background: url(star_sheet.png) no-repeat;
   background-size: 32vw;
-  display: inline-block;
+  display: block;
   position: relative;
 }
 
 body #contents .main_contents .inner #card_wrap .card .click_link .star .rate {
   position: absolute;
-  left: 33vw;
+  left: 34vw;
   font-size: 4vw;
-  top: 0.8vw;
+  top: 20%;
 }
 
 body #contents .main_contents .inner #card_wrap .card .click_link .star_15 {
@@ -213,6 +213,12 @@ body #contents .main_contents .inner #card_wrap .card .click_link .price li {
 }
 
 body #contents .main_contents .inner #card_wrap .card .click_link .price li img {
+  width: 11vw;
+  transform: translateY(1vw);
+  margin-right: 1vw;
+}
+
+body #contents .main_contents .inner #card_wrap #rate_num {
   width: 11vw;
   transform: translateY(1vw);
   margin-right: 1vw;
