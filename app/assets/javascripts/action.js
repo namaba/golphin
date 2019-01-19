@@ -14,7 +14,7 @@ $(document).ready(function(){
 //プラスマイナスボタン切り替え
 $(function(){
   $('.more').on('click',function(){
-      $('.detail').fadeToggle('slow');
+      $('.detail').slideToggle('slow');
       $(this).toggleClass("active_mark");
       if ($(this).hasClass("active_mark")){
         $(this).css('background-image', 'url(/assets/minus.png)');
@@ -23,7 +23,7 @@ $(function(){
       }
   });
   $('.subTtl').on('click',function(){
-      $(this).next("dd").fadeToggle('slow');
+      $(this).next("dd").slideToggle('slow');
       $(this).toggleClass("active_mark");
       if ($(this).hasClass("active_mark")){
         $(this).css('background-image', 'url(/assets/minus.png)');
