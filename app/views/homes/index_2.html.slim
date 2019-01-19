@@ -3,12 +3,10 @@
 /   = f.input :play_date, as: :date, html5: true
 /   = f.button :submit
 
-= form_tag homes_url do
+= form_tag search_homes_url do
   = select :conditions, :area_code, [['北海道', 1], ['青森', 2], ['岩手', 3]]
   = date_field('conditions','play_date')
   = submit_tag '検索'
-
-
 
 #content
   .intro
@@ -16,17 +14,26 @@
       | ゴルフ場大手予約サイト3社を比較！
       br>/
       | 最高のプランで最高のゴルフを
-
   /! intro
   section#search
     .inner
       dl#area
         dt エリア
-        dd#areaForm　全地域
+        dd
+          form#areaForm
+            select name="都道府県"
+              option hidden="" value=""  ---
       dl#date
         dt プレー日
         dd
-          form#dateForm 日付を選択
+          form#dateForm
+            select name="都道府県"
+              option hidden="" value=""  ---
+              option hidden="" value=""  ---
+              option value="0"  全地域
+              option value="1"  北海道
+              option value="2"  東京
+              option value="3"  沖縄
       .submit
         form
           input.btn type="submit" value="検索する" /
@@ -101,146 +108,146 @@
             li
               dl
                 dt.subTtl
-                  input name="kantou" type="checkbox" value="0"
+                  input name="kantou" type="checkbox" value="0" >/
                   | 関東・甲信越
                 dd.list
                   span
-                    input name="kantou" type="checkbox" value="1"
+                    input name="kantou" type="checkbox" value="1" >/
                     | 茨城県
                   span
-                    input name="kantou" type="checkbox" value="2"
+                    input name="kantou" type="checkbox" value="2" >/
                     | 栃木県
                   span
-                    input name="kantou" type="checkbox" value="3"
+                    input name="kantou" type="checkbox" value="3" >/
                     | 群馬県
                   span
-                    input name="kantou" type="checkbox" value="4"
+                    input name="kantou" type="checkbox" value="4" >/
                     | 埼玉県
                   span
-                    input name="kantou" type="checkbox" value="5"
+                    input name="kantou" type="checkbox" value="5" >/
                     | 千葉県
                   span
-                    input name="kantou" type="checkbox" value="9"
+                    input name="kantou" type="checkbox" value="9" >/
                     | 長野県
                   span
-                    input name="kantou" type="checkbox" value="8"
+                    input name="kantou" type="checkbox" value="8" >/
                     | 山梨県
                   span
-                    input name="kantou" type="checkbox" value="9"
+                    input name="kantou" type="checkbox" value="9" >/
                     | 長野県
                   span
-                    input name="kantou" type="checkbox" value="10"
+                    input name="kantou" type="checkbox" value="10" >/
                     | 静岡県
                   span
-                    input name="kantou" type="checkbox" value="11"
+                    input name="kantou" type="checkbox" value="11" >/
                     | 新潟県
             li
               dl
                 dt.subTtl
-                  input name="kantou" type="checkbox" value="0"
+                  input name="kantou" type="checkbox" value="0" >/
                   | 関東・甲信越
                 dd.list
                   span
-                    input name="kantou" type="checkbox" value="1"
+                    input name="kantou" type="checkbox" value="1" >/
                     | 茨城県
                   span
-                    input name="kantou" type="checkbox" value="2"
+                    input name="kantou" type="checkbox" value="2" >/
                     | 栃木県
                   span
-                    input name="kantou" type="checkbox" value="3"
+                    input name="kantou" type="checkbox" value="3" >/
                     | 群馬県
                   span
-                    input name="kantou" type="checkbox" value="4"
+                    input name="kantou" type="checkbox" value="4" >/
                     | 埼玉県
                   span
-                    input name="kantou" type="checkbox" value="5"
+                    input name="kantou" type="checkbox" value="5" >/
                     | 千葉県
                   span
-                    input name="kantou" type="checkbox" value="9"
+                    input name="kantou" type="checkbox" value="9" >/
                     | 長野県
                   span
-                    input name="kantou" type="checkbox" value="8"
+                    input name="kantou" type="checkbox" value="8" >/
                     | 山梨県
                   span
-                    input name="kantou" type="checkbox" value="9"
+                    input name="kantou" type="checkbox" value="9" >/
                     | 長野県
                   span
-                    input name="kantou" type="checkbox" value="10"
+                    input name="kantou" type="checkbox" value="10" >/
                     | 静岡県
                   span
-                    input name="kantou" type="checkbox" value="11"
+                    input name="kantou" type="checkbox" value="11" >/
                     | 新潟県
             li
               dl
                 dt.subTtl
-                  input name="kantou" type="checkbox" value="0"
+                  input name="kantou" type="checkbox" value="0" >/
                   | 関東・甲信越
                 dd.list
                   span
-                    input name="kantou" type="checkbox" value="1"
+                    input name="kantou" type="checkbox" value="1" >/
                     | 茨城県
                   span
-                    input name="kantou" type="checkbox" value="2"
+                    input name="kantou" type="checkbox" value="2" >/
                     | 栃木県
                   span
-                    input name="kantou" type="checkbox" value="3"
+                    input name="kantou" type="checkbox" value="3" >/
                     | 群馬県
                   span
-                    input name="kantou" type="checkbox" value="4"
+                    input name="kantou" type="checkbox" value="4" >/
                     | 埼玉県
                   span
-                    input name="kantou" type="checkbox" value="5"
+                    input name="kantou" type="checkbox" value="5" >/
                     | 千葉県
                   span
-                    input name="kantou" type="checkbox" value="9"
+                    input name="kantou" type="checkbox" value="9" >/
                     | 長野県
                   span
-                    input name="kantou" type="checkbox" value="8"
+                    input name="kantou" type="checkbox" value="8" >/
                     | 山梨県
                   span
-                    input name="kantou" type="checkbox" value="9"
+                    input name="kantou" type="checkbox" value="9" >/
                     | 長野県
                   span
-                    input name="kantou" type="checkbox" value="10"
+                    input name="kantou" type="checkbox" value="10" >/
                     | 静岡県
                   span
-                    input name="kantou" type="checkbox" value="11"
+                    input name="kantou" type="checkbox" value="11" >/
                     | 新潟県
             li
               dl
                 dt.subTtl
-                  input name="kantou" type="checkbox" value="0"
+                  input name="kantou" type="checkbox" value="0" >/
                   | 関東・甲信越
                 dd.list
                   span
-                    input name="kantou" type="checkbox" value="1"
+                    input name="kantou" type="checkbox" value="1" >/
                     | 茨城県
                   span
-                    input name="kantou" type="checkbox" value="2"
+                    input name="kantou" type="checkbox" value="2" >/
                     | 栃木県
                   span
-                    input name="kantou" type="checkbox" value="3"
+                    input name="kantou" type="checkbox" value="3" >/
                     | 群馬県
                   span
-                    input name="kantou" type="checkbox" value="4"
+                    input name="kantou" type="checkbox" value="4" >/
                     | 埼玉県
                   span
-                    input name="kantou" type="checkbox" value="5"
+                    input name="kantou" type="checkbox" value="5" >/
                     | 千葉県
                   span
-                    input name="kantou" type="checkbox" value="9"
+                    input name="kantou" type="checkbox" value="9" >/
                     | 長野県
                   span
-                    input name="kantou" type="checkbox" value="8"
+                    input name="kantou" type="checkbox" value="8" >/
                     | 山梨県
                   span
-                    input name="kantou" type="checkbox" value="9"
+                    input name="kantou" type="checkbox" value="9" >/
                     | 長野県
                   span
-                    input name="kantou" type="checkbox" value="10"
+                    input name="kantou" type="checkbox" value="10" >/
                     | 静岡県
                   span
-                    input name="kantou" type="checkbox" value="11"
+                    input name="kantou" type="checkbox" value="11" >/
                     | 新潟県
   /! 都道府県選択エリア
 /! content
