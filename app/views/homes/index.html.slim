@@ -9,21 +9,11 @@
     .inner
       dl#area
         dt エリア
-        dd
-          form#areaForm
-            select name="都道府県"
-              option hidden="" value=""  ---
+        dd#areaForm　全地域
       dl#date
         dt プレー日
         dd
-          form#dateForm
-            select name="都道府県"
-              option hidden="" value=""  ---
-              option hidden="" value=""  ---
-              option value="0"  全地域
-              option value="1"  北海道
-              option value="2"  東京
-              option value="3"  沖縄
+          form#dateForm 日付を選択
       .submit
         form
           input.btn type="submit" value="検索する" /

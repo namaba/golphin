@@ -37,8 +37,8 @@ form {
   border: 1px solid #f8f8f8;
   box-sizing: border-box;
   border-radius: 5px;
-  background: url('arrow.png')95% 50% no-repeat;
-  background-size: 8px;
+  // background: url('arrow.png')95% 50% no-repeat;
+  // background-size: 8px;
   select {
     width: 100%;
   }
@@ -76,11 +76,21 @@ form {
       #area{
         background: url('logo_area.png')5% 10% no-repeat;
         background-size: 8%;
+        dd {
+          padding-right: 1.5em;
+          background: url("arrow.png") 95% 25% no-repeat;
+          background-size: 10%;
+        }
       }
       #date{
         background: url('logo_date.png')5% 10% no-repeat;
         background-size: 8%;
         margin-bottom: 7%;
+        dd {
+          padding-right: 1.5em;
+          background: url("arrow.png") 95% 25% no-repeat;
+          background-size: 10%;
+        }
       }
       .detail{
         display: none;
@@ -570,4 +580,3 @@ body #contents .main_contents .inner #card_wrap .card .click_link .price li img 
   transform: translateY(1vw);
   margin-right: 1vw;
 }
-
