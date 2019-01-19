@@ -1,3 +1,14 @@
+/ = simple_form_for :conditions, url: homes_path, html: { id: :areaForm2} do |f|
+/   = f.input :area, as: :string
+/   = f.input :play_date, as: :date, html5: true
+/   = f.button :submit
+
+= form_tag search_homes_url do
+  = select :conditions, :area_code, [['北海道', 1], ['青森', 2], ['岩手', 3]]
+  = date_field('conditions','play_date')
+  = submit_tag '検索'
+
+
 #content
   .intro
     p

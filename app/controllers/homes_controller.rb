@@ -9,12 +9,14 @@ class HomesController < ApplicationController
   def results
   end
 
-  def results_2
-  end
-
   def create
     @plans = RWS::Gora::Plan.search(areaCode: conditions_params['area_code'], playDate: conditions_params['play_date'])
     raise @plans.first
+  end
+
+  def search
+    @plans = RWS::Gora::Plan.search(areaCode: conditions_params['area_code'], playDate: conditions_params['play_date'])
+    render :results
   end
 
   private
