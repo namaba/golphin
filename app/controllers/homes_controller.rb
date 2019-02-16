@@ -59,6 +59,7 @@ class HomesController < ApplicationController
   end
 
   def build_condition
+    raise conditions_params.inspect
     @condition = Condition.new conditions_params
   end
 end

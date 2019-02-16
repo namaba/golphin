@@ -17,6 +17,9 @@
 /   = f.input :play_date, as: :date, html5: true
 /   = f.button :submit
 
+- min_prices = [['5000', 5000], ['10000', 10000], ['15000',15000]]
+- max_prices = [['5000', 5000], ['10000', 10000], ['15000',15000]]
+
 #content
   .intro
     p
@@ -35,11 +38,9 @@
         dl#date
           dt プレー日
           dd
-            form#dateForm 日付を選択
-        = f.button :submit
-        / .submit
-        /   form
-        /     input.btn type="submit" value="検索する" /
+            = f.text_field :play_date, class: 'date-picker'
+        = f.button :submit, '検索する'
+
         /! submit
         .detail_btn
           p.more.btn
@@ -49,21 +50,10 @@
           dl#price
             dt プレー料金
             dd
-              form#priceMin
-                select name="下限なし"
-                  option hidden="" value=""  下限なし
-                  option value="0"  5,000
-                  option value="1"  5,000
-                  option value="2"  5,000
-                  option value="3"  5,000
+              = f.input :min_price, as: :select, collection: min_prices, label: false, prompt: '下限なし'
               span 〜
-              form#priceMax
-                select name="上限なし"
-                  option hidden="" value=""  上限なし
-                  option value="0"  5,000
-                  option value="1"  5,000
-                  option value="2"  5,000
-                  option value="3"  5,000
+              = f.input :max_price, as: :select, collection: max_prices, label: false, prompt: '上限なし'
+
           dl#time
             dt スタート時間
             dd
@@ -101,3 +91,19 @@
     /! inner
     /! search
 /! content
+
+javascript:
+  var ready;
+
+  ready = function() {
+    var dateFormat;
+    dateFormat = 'yy-mm-dd';
+    return $('.date-picker').datepicker({
+      dateFormat: dateFormat,
+      minDate: 0
+    });
+  };
+
+  $(document).ready(ready);
+
+  $(document).on('turbolinks:load', ready);
