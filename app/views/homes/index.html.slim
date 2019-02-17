@@ -1,14 +1,5 @@
-/ = simple_form_for :conditions, url: homes_path, html: { id: :areaForm2} do |f|
-/   = f.input :area, as: :string
-/   = f.input :play_date, as: :date, html5: true
-/   = f.button :submit
-
-= form_tag homes_url do
-  = select :conditions, :area_code, [['北海道', 1], ['青森', 2], ['岩手', 3]]
-  = date_field('conditions','play_date')
-  = submit_tag '検索'
-
-
+- min_prices = [['5000', 5000], ['10000', 10000], ['15000',15000]]
+- max_prices = [['5000', 5000], ['10000', 10000], ['15000',15000]]
 
 #content
   .intro
@@ -17,230 +8,85 @@
       br>/
       | 最高のプランで最高のゴルフを
 
-  /! intro
-  section#search
-    .inner
-      dl#area
-        dt エリア
-        dd#areaForm　全地域
-      dl#date
-        dt プレー日
-        dd
-          form#dateForm 日付を選択
-      .submit
-        form
-          input.btn type="submit" value="検索する" /
-      /! submit
-      .detail_btn
-        p.more.btn
-          a さらに条件を指定する
-      /! detail
-      .detail
-        dl#price
-          dt プレー料金
+  = simple_form_for @condition, url: results_homes_url, html: { id: :areaForm2} do |f|
+    /! intro
+    section#search
+      .inner
+        dl#area
+          dt エリア
+          dd#areaForm　全地域
+          = render 'areaselect', f: f
+        dl#date
+          dt プレー日
           dd
-            form#priceMin
-              select name="下限なし"
-                option hidden="" value=""  下限なし
-                option value="0"  5,000
-                option value="1"  5,000
-                option value="2"  5,000
-                option value="3"  5,000
-            span 〜
-            form#priceMax
-              select name="上限なし"
-                option hidden="" value=""  上限なし
-                option value="0"  5,000
-                option value="1"  5,000
-                option value="2"  5,000
-                option value="3"  5,000
-        dl#time
-          dt スタート時間
-          dd
-            ul
-              li.active ~6時台
-              li 7時台
-              li 8時台
-              li 9時台
-              li 10時台
-              li 11時台
-              li 12時台
-              li 13時台~
-        dl#option
-          dt オプション
-          dd
-            ul
-              li.active 昼食付き
-              li 2サム付き
-              li キャディ付き
-              li 昼食付き
-              li 2サム付き
-              li キャディ付き
-        dl#avoid
-          dt 除外指定
-          dd.all 全て選択
-          dd
-            ul
-              li.active 9Hプレー
-              li ジュニアプラン
-              li レッスン
-              li 宿泊プラン
-              li 2サム保証
-              li キャディ付き
+            = f.text_field :play_date, class: 'date-picker'
+        = f.button :submit, '検索する'
+
+        /! submit
+        .detail_btn
+          p.more.btn
+            a さらに条件を指定する
+        /! detail
+        .detail
+          dl#price
+            dt プレー料金
+            dd
+              = f.input :min_price, as: :select, collection: min_prices, label: false, prompt: '下限なし'
+              span 〜
+              = f.input :max_price, as: :select, collection: max_prices, label: false, prompt: '上限なし'
+
+          dl#time
+            dt スタート時間
+            dd
+              ul
+                li.active ~6時台
+                li= f.check_box :start_time_zone, {multiple: true}, '7', nil
+                label[for="condition_start_time_zone_7"] 7時台
+                li= f.check_box :start_time_zone, {multiple: true}, '8', nil
+                label[for="condition_start_time_zone_8"] 8時台
+                li 9時台
+                li 10時台
+                li 11時台
+                li 12時台
+                li 13時台~
+          dl#option
+            dt オプション
+            dd
+              ul
+                li.active 昼食付き
+                li 2サム付き
+                li キャディ付き
+                li 昼食付き
+                li 2サム付き
+                li キャディ付き
+          dl#avoid
+            dt 除外指定
+            dd.all 全て選択
+            dd
+              ul
+                li.active 9Hプレー
+                li ジュニアプラン
+                li レッスン
+                li 宿泊プラン
+                li 2サム保証
+                li キャディ付き
       /! detail
     /! inner
-  /! search
-  /! 都道府県選択エリア
-  .areaSelect
-    .overLay
-    dl.modalContent
-      dt.ttl エリアを選択してください
-      dd
-        form
-          ul
-            li
-              dl
-                dt.subTtl
-                  input name="kantou" type="checkbox" value="0"
-                  | 関東・甲信越
-                dd.list
-                  span
-                    input name="kantou" type="checkbox" value="1"
-                    | 茨城県
-                  span
-                    input name="kantou" type="checkbox" value="2"
-                    | 栃木県
-                  span
-                    input name="kantou" type="checkbox" value="3"
-                    | 群馬県
-                  span
-                    input name="kantou" type="checkbox" value="4"
-                    | 埼玉県
-                  span
-                    input name="kantou" type="checkbox" value="5"
-                    | 千葉県
-                  span
-                    input name="kantou" type="checkbox" value="9"
-                    | 長野県
-                  span
-                    input name="kantou" type="checkbox" value="8"
-                    | 山梨県
-                  span
-                    input name="kantou" type="checkbox" value="9"
-                    | 長野県
-                  span
-                    input name="kantou" type="checkbox" value="10"
-                    | 静岡県
-                  span
-                    input name="kantou" type="checkbox" value="11"
-                    | 新潟県
-            li
-              dl
-                dt.subTtl
-                  input name="kantou" type="checkbox" value="0"
-                  | 関東・甲信越
-                dd.list
-                  span
-                    input name="kantou" type="checkbox" value="1"
-                    | 茨城県
-                  span
-                    input name="kantou" type="checkbox" value="2"
-                    | 栃木県
-                  span
-                    input name="kantou" type="checkbox" value="3"
-                    | 群馬県
-                  span
-                    input name="kantou" type="checkbox" value="4"
-                    | 埼玉県
-                  span
-                    input name="kantou" type="checkbox" value="5"
-                    | 千葉県
-                  span
-                    input name="kantou" type="checkbox" value="9"
-                    | 長野県
-                  span
-                    input name="kantou" type="checkbox" value="8"
-                    | 山梨県
-                  span
-                    input name="kantou" type="checkbox" value="9"
-                    | 長野県
-                  span
-                    input name="kantou" type="checkbox" value="10"
-                    | 静岡県
-                  span
-                    input name="kantou" type="checkbox" value="11"
-                    | 新潟県
-            li
-              dl
-                dt.subTtl
-                  input name="kantou" type="checkbox" value="0"
-                  | 関東・甲信越
-                dd.list
-                  span
-                    input name="kantou" type="checkbox" value="1"
-                    | 茨城県
-                  span
-                    input name="kantou" type="checkbox" value="2"
-                    | 栃木県
-                  span
-                    input name="kantou" type="checkbox" value="3"
-                    | 群馬県
-                  span
-                    input name="kantou" type="checkbox" value="4"
-                    | 埼玉県
-                  span
-                    input name="kantou" type="checkbox" value="5"
-                    | 千葉県
-                  span
-                    input name="kantou" type="checkbox" value="9"
-                    | 長野県
-                  span
-                    input name="kantou" type="checkbox" value="8"
-                    | 山梨県
-                  span
-                    input name="kantou" type="checkbox" value="9"
-                    | 長野県
-                  span
-                    input name="kantou" type="checkbox" value="10"
-                    | 静岡県
-                  span
-                    input name="kantou" type="checkbox" value="11"
-                    | 新潟県
-            li
-              dl
-                dt.subTtl
-                  input name="kantou" type="checkbox" value="0"
-                  | 関東・甲信越
-                dd.list
-                  span
-                    input name="kantou" type="checkbox" value="1"
-                    | 茨城県
-                  span
-                    input name="kantou" type="checkbox" value="2"
-                    | 栃木県
-                  span
-                    input name="kantou" type="checkbox" value="3"
-                    | 群馬県
-                  span
-                    input name="kantou" type="checkbox" value="4"
-                    | 埼玉県
-                  span
-                    input name="kantou" type="checkbox" value="5"
-                    | 千葉県
-                  span
-                    input name="kantou" type="checkbox" value="9"
-                    | 長野県
-                  span
-                    input name="kantou" type="checkbox" value="8"
-                    | 山梨県
-                  span
-                    input name="kantou" type="checkbox" value="9"
-                    | 長野県
-                  span
-                    input name="kantou" type="checkbox" value="10"
-                    | 静岡県
-                  span
-                    input name="kantou" type="checkbox" value="11"
-                    | 新潟県
-  /! 都道府県選択エリア
+    /! search
 /! content
+
+javascript:
+  var ready;
+
+  ready = function() {
+    var dateFormat;
+    dateFormat = 'yy-mm-dd';
+    return $('.date-picker').datepicker({
+      dateFormat: dateFormat,
+      minDate: 0
+    });
+  };
+
+  $(document).ready(ready);
+
+  $(document).on('turbolinks:load', ready);

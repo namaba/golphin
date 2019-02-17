@@ -10,8 +10,7 @@ Rails.application.routes.draw do
 
   resources :homes do
     collection do
-      post 'search', to: 'homes#search'
-      get 'results', to: 'homes#results'
+      post 'results', to: 'homes#results'
       get 'results_2', to: 'homes#results_2'
       get 'index_2', to: 'homes#index_2'
     end
