@@ -1,0 +1,22 @@
+.card
+  span.city 茨城県
+  h2.golf_place つくばゴルフ場
+  .imagebox
+    = image_tag("#{plan["golfCourseImageUrl"]}", class: 'image')
+
+  a.click_link href="#"
+    .star[class="star_#{plan['evaluation'].round}"]
+      span.rate= plan['evaluation']
+    address.address-area= @address_hash["#{plan.golf_course_id}"]
+    address.address-way= "#{plan['ic']}ICから#{plan["icDistance"]}"
+    / 楽天の料金は正規表現で抽出する。
+    ul.price.flexbox
+      li
+        = image_tag('gdo_logo')
+        span.gdo_price 6680円
+      li
+        = image_tag('jaran_logo')
+        span.jaran_price 6680円
+      li
+        = image_tag('rakuten_logo')
+        span.rakuten_price 6680円

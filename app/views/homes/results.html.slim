@@ -1,72 +1,29 @@
+- plan = @plans.first
+- wd = ["日", "月", "火", "水", "木", "金", "土"]
+- wday = wd[Time.current.wday]
 #contents
-      nav
-        ul.flexbox
-          li
-           = image_tag('icon')
-           p#place 関東
-          li
-            = image_tag('icon02')
-            p#date 9月22日(日)
-          li
-            button name="button" type="button"
-              = image_tag('icon03')
-              | 条件を絞り込む
-      section
-        .main_contents
-          .inner
-            .find_wrap.flexbox
-              p
-                span#find> 2
-                | 件見つかりました
-              select#sort name=""
-                option value=""  安い順
-                option value=""  高い順
-                option value=""  おすすめ順
-            #card_wrap
-              .card
-                span.city 茨城県
-                h2.golf_place つくばゴルフ場
-                .imagebox
-                  =image_tag('img01', class: 'image')
-
-                a.click_link href="#"
-                  .star.star_4
-                    span.rate 4.0
-                  address.address-area 東京都 世田谷区太子堂4-24-15
-                  address.address-way 用賀ICから5km以内
-                  ul.price.flexbox
-                    li
-                      = image_tag('gdo_logo')
-                      span.gdo_price 6680円
-                    li
-                      = image_tag('jaran_logo')
-                      span.jaran_price 6680円
-                    li
-                      = image_tag('rakuten_logo')
-                      span.rakuten_price 6680円
-              /! card
-              / .card
-              /   span.city 茨城県
-              /   h2.golf_place つくばゴルフ場
-              /   .imagebox
-              /     img.image alt="ゴルフ場の写真" src="./img/img02.png" /
-              /   a.click_link href="#"
-              /     .star.star_15
-              /       span.rate (1.5)
-              /     address.address-area 東京都 世田谷区太子堂4-24-15
-              /     address.address-way 用賀ICから5km以内
-              /     ul.price.flexbox
-              /       li
-              /         img alt="" src="./img/gdo_logo.png" /
-              /         = succeed "\u301C" do
-              /           span.gdo_price 6680円
-              /       li
-              /         img alt="" src="./img/jaran_logo.png" /
-              /         = succeed "\u301C" do
-              /           span.jaran_price 6680円
-              /       li
-              /         img alt="" src="./img/rakuten_logo.png" /
-              /         = succeed "\u301C" do
-              /           span.rakuten_price 6680円
-              /! card
-        /! main_contents
+  nav
+    ul.flexbox
+      li
+       = image_tag('icon')
+       p#place= plan['prefecture']
+      li
+        = image_tag('icon02')
+        p#date= @condition.play_date.strftime("%-m月%-d日(#{wday})")
+      li
+        button name="button" type="button"
+          = image_tag('icon03')
+          | 条件を絞り込む
+  section
+    .main_contents
+      .inner
+        .find_wrap.flexbox
+          p
+            span#find= @plans.count
+            | 件見つかりました
+          select#sort name=""
+            option value=""  安い順
+            option value=""  高い順
+            option value=""  おすすめ順
+        #card_wrap
+          = render partial: 'plan', collection: @plans

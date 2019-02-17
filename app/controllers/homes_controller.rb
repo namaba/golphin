@@ -1,4 +1,6 @@
 class HomesController < ApplicationController
+  before_action :build_condition, only: :results
+  before_action :condition_check, only: :results
 
   def index
     @condition = Condition.new
@@ -8,25 +10,53 @@ class HomesController < ApplicationController
   end
 
   def results
+    @plans = search_plans
+    cource_ids = @plans.pluck('golf_course_id')
+    cources = RakutenWebService::Gora::Course.search(golfCourseId: cource_ids)
+    @address_hash =
+      cources.each_with_object({}) do |c, hash|
+        hash[c.golf_course_id] = c.address
+      end
   end
 
-  def create
-    @plans = RWS::Gora::Plan.search(areaCode: conditions_params['area_code'], playDate: conditions_params['play_date'])
-    raise @plans.first
+  private
+
+  def conditions_params
+    params.require(:condition).permit(
+      :play_date,
+      :min_price,
+      :max_price,
+      :plan_caddie,
+      area_code: [],
+      start_time_zone: [],
+      )
   end
 
-  def search
-    condition = build_condition
-    raise condition.inspect
-    @plans = RWS::Gora::Plan.search(
-        areaCode: condition.area_code,
-        playDate: condition.play_date,
-        minPrice: condition.min_price,
-        maxPrice: condition.max_price,
-        # startTimeZone: conditions_params["start_time_zone"],
-        # planCaddie: 1,
-        # planLunch: 1,
-        # plan2sum: 1,
+  def build_condition
+    @condition = Condition.new conditions_params
+  end
+
+  def condition_check
+    return if @condition.area_code && @condition.play_date
+    empty_params = []
+    empty_params << 'エリア' if @condition.area_code.blank?
+    empty_params << 'プレー日' if @condition.play_date.blank?
+    joined_empty_params = empty_params.join(',')
+    redirect_to root_path, alert: "#{joined_empty_params}を入力してください"
+  end
+
+  def search_plans
+    area_code = @condition.area_code.join(',')
+    start_time_zone = @condition.start_time_zone&.join(',')
+    RWS::Gora::Plan.search(
+        areaCode: area_code,
+        playDate: @condition.play_date,
+        minPrice: @condition.min_price,
+        maxPrice: @condition.max_price,
+        startTimeZone: start_time_zone,
+        planCaddie: @condition.plan_caddie,
+        planLunch: @condition.plan_lunch,
+        plan2sum: @condition.plan_2sum,
         # NGプラン対象
         # planCaddie：キャディ付
         # planCart：乗用カート有
@@ -40,26 +70,5 @@ class HomesController < ApplicationController
         # NGPlan: 'planLesson,planHalfRound'
       )
     # @plans = RWS::Gora::Plan.search(areaCode: conditions_params['area_code'], playDate: conditions_params['play_date'], minPrice: 0, maxPrice: 25000)
-    raise @plans.count.inspect
-    render :results
-
-  end
-
-  private
-
-  def conditions_params
-    params.require(:condition).permit(
-      :play_date,
-      :min_price,
-      :max_price,
-      :start_time_zone,
-      :plan_caddie,
-      area_code: [],
-      )
-  end
-
-  def build_condition
-    raise conditions_params.inspect
-    @condition = Condition.new conditions_params
   end
 end
