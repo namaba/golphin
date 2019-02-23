@@ -14,6 +14,7 @@ Rails.application.routes.draw do
       get 'results', to: 'homes#results'
       get 'results_2', to: 'homes#results_2'
       get 'index_2', to: 'homes#index_2'
+      get 'detail', to: 'homes#detail'
     end
   end
 end

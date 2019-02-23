@@ -1,0 +1,105 @@
+#detail .active {
+  background-color: #16a7e9;
+}
+#detail .active .txt{
+  color: #fff!important;
+}
+#detail #contents .main_contents {
+  background-color: #fff;
+}
+#detail #contents .main_contents .inner #card_wrap .card {
+  border-radius: 0;
+  margin-bottom: 0;
+  box-shadow: none;
+}
+
+
+#detail #contents .main_contents .inner {
+  width: 100%;
+}
+#detail #contents .main_contents .inner #card_wrap .tab li img {
+  width: 8vw;
+  display: block;
+  transform:translateY(0);
+  margin:0 auto;
+
+}
+#detail #contents .main_contents .inner #card_wrap .tab li span {
+  color: #000;
+  display: block;
+    font-size: 3vw;
+    margin-top: 6%;
+}
+#detail #contents .main_contents .inner #card_wrap .tab {
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid #e0dede;
+}
+#detail #contents .main_contents .inner #card_wrap .tab li {
+  width: 20%;
+  text-align: center;
+  box-sizing: border-box;
+    padding: 1% 0;
+    border-right: 1px solid #e0dede;
+}
+
+#detail #contents .contentsBottom {
+  width: 96%;
+  margin:0 auto;
+  }
+#detail #contents .contentsBottom nav {
+    margin: 5% auto;;
+  }
+#detail #contents .contentsBottom nav ul li {
+  margin:0 auto 0 0;
+}
+#detail #contents .inner .contentsBottom .planCard {
+  border-radius: 8px;
+  box-shadow: 0px 2px 1px #999;
+  padding: 4% 2%;
+  box-sizing: border-box;
+  margin-bottom: 6%;
+  }
+#detail #contents .contentsBottom .planCard .planTtl {
+      align-items: start;
+     margin-bottom:5%;
+  }
+  #detail #contents .contentsBottom .planCard .planTtl p {
+        font-size: 4vw;
+          line-height: 1.5;
+    }
+    #detail #contents .contentsBottom .planCard .planTtl img {
+        width: 10vw;
+        margin-right: 2%;
+      }
+#detail #contents .contentsBottom .planCard .planBottom {
+    justify-content: space-between;
+  }
+#detail #contents .contentsBottom .planCard .planBottom li {
+    width:10vw;
+    margin-right: 2%;
+  }
+  #detail #contents .contentsBottom .planCard .planBottom li img {
+      max-width: 100%;
+    }
+#detail #contents .contentsBottom .planCard .planBottom .price {
+  display: inline-block;
+  color: #e90404;
+  font-weight: bold;
+  text-align: center;
+}
+#detail #contents .contentsBottom .planCard .planBottom .price span{
+    display: block;
+    font-size: 3vw;
+    color: #000;
+  }
+#detail #contents .contentsBottom .planCard .planBottom .count {
+  font-size: 3vw;
+      display: flex;
+      align-items: center;
+      border: 1px solid #00a0e9;
+      border-radius: 4px;
+      box-sizing: border-box;
+      padding: 0% 2%;
+}
