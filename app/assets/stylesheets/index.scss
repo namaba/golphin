@@ -1,5 +1,6 @@
 $reset_zero: 0;
 $color_white : #fff;
+$color_blue : #3cb6ee;
 $width : 100%;
 $margin_reset : 0 auto;
 /* iOSでのデフォルトスタイルをリセット */
@@ -22,14 +23,21 @@ li {
   list-style: none;
   box-sizing: border-box;
 }
+body{
+  font-family: "游ゴシック体", YuGothic, "Yu Gothic M", "游ゴシック Medium", "Yu Gothic Medium", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN W3", HiraKakuProN-W3, "ヒラギノ角ゴ ProN", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+}
 // ヘッダー
 nav.navbar-dark {
   background-color: $color_white!important;
     h1.logo {
-      background-color: $color_white;
-      max-width: $width;
-      width: 750px;
-      margin: $margin_reset;
+      background-color: #fff;
+      max-width: 100%;
+      width: 100%;
+      margin: 0 auto;
+      padding: 2vw;
+      img{
+        width: 42vw;
+      }
     }
   }
 // コンテンツ
@@ -67,29 +75,45 @@ form {
     dl {
       display: flex;
       justify-content: space-between;
+      align-items: baseline;
       border-bottom:  1px solid #eee;
       box-sizing: border-box;
-      padding-bottom: 5%;
-      padding-top: 2%;
-      margin-bottom: 5%;
+      padding-bottom: 3vw;
+      padding-top: 2vw;
+      margin-bottom: 4vw;
+
     }
       #area{
-        background: url('logo_area.png')5% 10% no-repeat;
+        background: url('logo_area.png') 4vw 3vw no-repeat;
         background-size: 8%;
         dd {
-          padding-right: 1.5em;
-          background: url("arrow.png") 95% 25% no-repeat;
-          background-size: 10%;
+          background: url('arrow.png') 96% 3.4vw no-repeat;
+          background-size: 4vw;
+          border: 1px solid #d3d3d3;
+          padding: 2.3vw 9vw 2.3vw 3vw;
+          border-radius: 5px;
+          max-width: 40vw;
+
         }
       }
       #date{
-        background: url('logo_date.png')5% 10% no-repeat;
+        background: url('logo_date.png')4vw 2vw no-repeat;
         background-size: 8%;
         margin-bottom: 7%;
         dd {
           padding-right: 1.5em;
-          background: url("arrow.png") 95% 25% no-repeat;
-          background-size: 10%;
+          background: url(arrow.png) 95% 3vw no-repeat;
+          background-size: 4vw;
+          border: 1px solid #d3d3d3;
+          border-radius: 5px;
+          padding: 1vw 8vw 1vw 0vw;
+          input{
+            font-size: 3.8vw;
+            background-color: #fff;
+            width: 26vw;
+            padding-left: 2vw;
+            border:none;
+          }
         }
       }
       .detail{
@@ -246,7 +270,7 @@ form {
       box-sizing: border-box;
     }
     input {
-      background-color: #00a0e9!important;
+      background-color: #00a0e9;
     }
     .detail_btn {
           margin: 4% auto 7%;
@@ -269,18 +293,56 @@ form {
 // 都道府県選択
 .container #content .areaSelect {
   display: none;
-  border:1px solid #efefef;
   border-radius: 12px;
-  width: 98%;
+  width: 100%;
   margin:0 auto;
-  dl.modalContent{
+  position: fixed;
+  top: 0;
+    left: 0;
+  .modalContent{
     position: fixed;
     z-index: 999;
     width: 95%;
+    height: 100%;
     margin: 0 auto;
-    top: 29vw;
+    top: 3vw;
     right: 0;
     left: 0;
+    overflow: scroll;
+    .close_btn{
+      position: absolute;
+      top: 6.5vw;
+      right:2.5vw;
+      width:  10vw;
+      height: 10vw;
+      span{
+        width: 5vw;
+        height: 2px;
+        display: inline-block;
+        background: #fff;
+        position: absolute;
+        right: 0;
+        top: 0;
+        &:nth-of-type(1){
+          transform: rotate(45deg);
+        }
+        &:nth-of-type(2){
+          transform: rotate(-45deg);
+        }
+      }
+
+    }
+    dd{
+      padding: 0!important;
+      max-width: none!important;
+      border:none!important;
+    }
+    dt{
+      position: relative;
+    }
+    dl{
+      border-bottom: none;
+    }
   }
   dl {
     display: block;
@@ -291,14 +353,15 @@ form {
        border-bottom: 0;
      }
      dt.ttl {
-      background-color: #00a0e9;
+      background-color: $color_blue;
       font-size: 16px;
       font-weight: normal;
       color: #fff;
       margin-bottom: 0;
-      padding: 4.5% 0 4.5% 0.5em;
+      padding: 4vw 0 4vw 3vw;
       border-top-left-radius : 12px;
       border-top-right-radius : 12px;
+      position: relative;
     }
   }
   dt {
@@ -312,14 +375,43 @@ form {
        margin-right: 1em;
      }
   }
-  dt.subTtl {
+  .subTtl {
     padding:1em 0.5em;
     margin-bottom: 0;
-    background-image: url(plus.png);
-    background-position: 95% 50%;
-    background-repeat: no-repeat;
     background-color: #fff;
     background-size: 16px;
+    position: relative;
+    // プラスマイナス切り替え
+    &__btn{
+      position: absolute;
+      width: 10vw;
+      height: 10vw;
+      right: 0;
+      top: 0;
+    span{
+      width: 3.5vw;
+      height: 2px;
+      position: absolute;
+      background: $color_blue;
+      right: 3vw;
+      top:5.5vw;
+      transition: .5s;
+      &:nth-of-type(1){
+        transform: rotate(0);
+      }
+      &:nth-of-type(2){
+        transform: rotate(90deg);
+      }
+    }
+    &--open{
+      & span:nth-of-type(1){
+        transform: rotate(45deg)!important;
+      }
+      & span:nth-of-type(2){
+        transform: rotate(-45deg)!important;
+      }
+    }
+    }
   }
   dd.list{
     display: none;
@@ -329,7 +421,7 @@ form {
       padding: 0.5em;
       padding-left: 1em;
       background-color: #efefee;
-      margin-bottom: 0.1em;
+      border-bottom: 1px solid #FFF;
        input {
          margin-right: 1em;
        }
@@ -339,6 +431,8 @@ form {
     border-bottom-left-radius : 12px;
     border-bottom-right-radius : 12px;
     border-bottom: 1px solid #efefee;
+    padding-bottom: 3vw;
+    background: #fff;
   }
   .overLay {
   position:absolute;
@@ -359,6 +453,7 @@ footer {
       width: 100%;
       margin: $margin_reset;
       text-align: center;
-      font-size: 10px;
+      font-size: 2vw;
+      margin-top: 3vw;
     }
 }

@@ -1,196 +1,226 @@
 .areaSelect
   .overLay
-  dl.modalContent
-    dt.ttl エリアを選択してください
-    dd
-      form
-        ul
-          li
-            dl
-              dt.subTtl
-                = f.check_box :area_code, {multiple: true}, '101', nil
-                label[for="condition_area_code_101"] 北海道・東北
-              dd.list
-                span
-                  = f.check_box :area_code, {multiple: true}, '1', nil
-                  label[for="condition_area_code_1"] 北海道
-                span
-                  = f.check_box :area_code, {multiple: true}, '2', nil
-                  label[for="condition_area_code_2"] 青森
-                span
-                  = f.check_box :area_code, {multiple: true}, '3', nil
-                  label[for="condition_area_code_3"] 岩手
-                span
-                  = f.check_box :area_code, {multiple: true}, '4', nil
-                  label[for="condition_area_code_4"] 宮城
-                span
-                  = f.check_box :area_code, {multiple: true}, '5', nil
-                  label[for="condition_area_code_5"] 秋田
-                span
-                  = f.check_box :area_code, {multiple: true}, '6', nil
-                  label[for="condition_area_code_6"] 山形
-                span
-                  = f.check_box :area_code, {multiple: true}, '7', nil
-                  label[for="condition_area_code_7"] 福島
-          li
-            dl
-              dt.subTtl
-                = f.check_box :area_code, {multiple: true}, '102', nil
-                label[for="condition_area_code_102"] 関東
-              dd.list
-                span
-                  = f.check_box :area_code, {multiple: true}, '8', nil
-                  label[for="condition_area_code_8"] 茨城
-                span
-                  = f.check_box :area_code, {multiple: true}, '9', nil
-                  label[for="condition_area_code_9"] 栃木
-                span
-                  = f.check_box :area_code, {multiple: true}, '10', nil
-                  label[for="condition_area_code_10"] 群馬
-                span
-                  = f.check_box :area_code, {multiple: true}, '11', nil
-                  label[for="condition_area_code_11"] 埼玉
-                span
-                  = f.check_box :area_code, {multiple: true}, '12', nil
-                  label[for="condition_area_code_12"] 千葉
-                span
-                  = f.check_box :area_code, {multiple: true}, '13', nil
-                  label[for="condition_area_code_13"] 東京
-                span
-                  = f.check_box :area_code, {multiple: true}, '14', nil
-                  label[for="condition_area_code_14"] 神奈川
-                span
-                  = f.check_box :area_code, {multiple: true}, '19', nil
-                  label[for="condition_area_code_15"] 山梨
-                span
-                  = f.check_box :area_code, {multiple: true}, '20', nil
-                  label[for="condition_area_code_16"] 長野
-                span
-                  = f.check_box :area_code, {multiple: true}, '22', nil
-                  label[for="condition_area_code_17"] 静岡
-          li
-            dl
-              dt.subTtl
-                = f.check_box :area_code, {multiple: true}, '103', nil
-                label[for="condition_area_code_103"] 北陸
-              dd.list
-                span
-                  = f.check_box :area_code, {multiple: true}, '15', nil
-                  label[for="condition_area_code_15"] 新潟
-                span
-                  = f.check_box :area_code, {multiple: true}, '16', nil
-                  label[for="condition_area_code_16"] 富山
-                span
-                  = f.check_box :area_code, {multiple: true}, '17', nil
-                  label[for="condition_area_code_17"] 石川
-                span
-                  = f.check_box :area_code, {multiple: true}, '18', nil
-                  label[for="condition_area_code_18"] 福井
-          li
-            dl
-              dt.subTtl
-                = f.check_box :area_code, {multiple: true}, '104', nil
-                label[for="condition_area_code_104"] 中部
-              dd.list
-                span
-                  = f.check_box :area_code, {multiple: true}, '21', nil
-                  label[for="condition_area_code_21"] 岐阜
-                span
-                  = f.check_box :area_code, {multiple: true}, '23', nil
-                  label[for="condition_area_code_23"] 愛知
-                span
-                  = f.check_box :area_code, {multiple: true}, '24', nil
-                  label[for="condition_area_code_24"] 三重
-          li
-            dl
-              dt.subTtl
-                = f.check_box :area_code, {multiple: true}, '105', nil
-                label[for="condition_area_code_105"] 近畿
-              dd.list
-                span
-                  = f.check_box :area_code, {multiple: true}, '25', nil
-                  label[for="condition_area_code_25"] 滋賀
-                span
-                  = f.check_box :area_code, {multiple: true}, '26', nil
-                  label[for="condition_area_code_26"] 京都
-                span
-                  = f.check_box :area_code, {multiple: true}, '27', nil
-                  label[for="condition_area_code_27"] 大阪
-                span
-                  = f.check_box :area_code, {multiple: true}, '28', nil
-                  label[for="condition_area_code_28"] 兵庫
-                span
-                  = f.check_box :area_code, {multiple: true}, '29', nil
-                  label[for="condition_area_code_29"] 奈良
-                span
-                  = f.check_box :area_code, {multiple: true}, '30', nil
-                  label[for="condition_area_code_30"] 和歌山
-          li
-            dl
-              dt.subTtl
-                = f.check_box :area_code, {multiple: true}, '106', nil
-                label[for="condition_area_code_106"] 中国
-              dd.list
-                span
-                  = f.check_box :area_code, {multiple: true}, '31', nil
-                  label[for="condition_area_code_31"] 鳥取
-                span
-                  = f.check_box :area_code, {multiple: true}, '32', nil
-                  label[for="condition_area_code_32"] 島根
-                span
-                  = f.check_box :area_code, {multiple: true}, '33', nil
-                  label[for="condition_area_code_33"] 岡山
-                span
-                  = f.check_box :area_code, {multiple: true}, '34', nil
-                  label[for="condition_area_code_34"] 広島
-                span
-                  = f.check_box :area_code, {multiple: true}, '35', nil
-                  label[for="condition_area_code_35"] 山口
-          li
-            dl
-              dt.subTtl
-                = f.check_box :area_code, {multiple: true}, '107', nil
-                label[for="condition_area_code_107"] 中国
-              dd.list
-                span
-                  = f.check_box :area_code, {multiple: true}, '36', nil
-                  label[for="condition_area_code_36"] 徳島
-                span
-                  = f.check_box :area_code, {multiple: true}, '37', nil
-                  label[for="condition_area_code_37"] 香川
-                span
-                  = f.check_box :area_code, {multiple: true}, '38', nil
-                  label[for="condition_area_code_38"] 愛媛
-                span
-                  = f.check_box :area_code, {multiple: true}, '39', nil
-                  label[for="condition_area_code_39"] 高知
-          li
-            dl
-              dt.subTtl
-                = f.check_box :area_code, {multiple: true}, '108', nil
-                label[for="condition_area_code_108"] 九州・沖縄
-              dd.list
-                span
-                  = f.check_box :area_code, {multiple: true}, '40', nil
-                  label[for="condition_area_code_40"] 福岡
-                span
-                  = f.check_box :area_code, {multiple: true}, '41', nil
-                  label[for="condition_area_code_41"] 佐賀
-                span
-                  = f.check_box :area_code, {multiple: true}, '42', nil
-                  label[for="condition_area_code_42"] 長崎
-                span
-                  = f.check_box :area_code, {multiple: true}, '43', nil
-                  label[for="condition_area_code_43"] 熊本
-                span
-                  = f.check_box :area_code, {multiple: true}, '44', nil
-                  label[for="condition_area_code_44"] 大分
-                span
-                  = f.check_box :area_code, {multiple: true}, '45', nil
-                  label[for="condition_area_code_45"] 宮崎
-                span
-                  = f.check_box :area_code, {multiple: true}, '46', nil
-                  label[for="condition_area_code_46"] 鹿児島
-                span
-                  = f.check_box :area_code, {multiple: true}, '47', nil
-                  label[for="condition_area_code_47"] 沖縄
+
+  .modalContent
+    dl
+      dt.ttl
+        |エリアを選択してください
+        div.close_btn
+          span
+          span
+      dd
+        form
+          ul
+            li
+              dl
+                dt.subTtl
+                  = f.check_box :area_code, {multiple: true}, '101', nil
+                  label[for="condition_area_code_101"] 北海道・東北
+                  .subTtl__btn
+                    span
+                    span
+                dd.list
+                  span
+                    = f.check_box :area_code, {multiple: true}, '1', nil
+                    label[for="condition_area_code_1"] 北海道
+                  span
+                    = f.check_box :area_code, {multiple: true}, '2', nil
+                    label[for="condition_area_code_2"] 青森
+                  span
+                    = f.check_box :area_code, {multiple: true}, '3', nil
+                    label[for="condition_area_code_3"] 岩手
+                  span
+                    = f.check_box :area_code, {multiple: true}, '4', nil
+                    label[for="condition_area_code_4"] 宮城
+                  span
+                    = f.check_box :area_code, {multiple: true}, '5', nil
+                    label[for="condition_area_code_5"] 秋田
+                  span
+                    = f.check_box :area_code, {multiple: true}, '6', nil
+                    label[for="condition_area_code_6"] 山形
+                  span
+                    = f.check_box :area_code, {multiple: true}, '7', nil
+                    label[for="condition_area_code_7"] 福島
+            li
+              dl
+                dt.subTtl
+                  = f.check_box :area_code, {multiple: true}, '102', nil
+                  label[for="condition_area_code_102"] 関東
+                  .subTtl__btn
+                    span
+                    span
+                dd.list
+                  span
+                    = f.check_box :area_code, {multiple: true}, '8', nil
+                    label[for="condition_area_code_8"] 茨城
+                  span
+                    = f.check_box :area_code, {multiple: true}, '9', nil
+                    label[for="condition_area_code_9"] 栃木
+                  span
+                    = f.check_box :area_code, {multiple: true}, '10', nil
+                    label[for="condition_area_code_10"] 群馬
+                  span
+                    = f.check_box :area_code, {multiple: true}, '11', nil
+                    label[for="condition_area_code_11"] 埼玉
+                  span
+                    = f.check_box :area_code, {multiple: true}, '12', nil
+                    label[for="condition_area_code_12"] 千葉
+                  span
+                    = f.check_box :area_code, {multiple: true}, '13', nil
+                    label[for="condition_area_code_13"] 東京
+                  span
+                    = f.check_box :area_code, {multiple: true}, '14', nil
+                    label[for="condition_area_code_14"] 神奈川
+                  span
+                    = f.check_box :area_code, {multiple: true}, '19', nil
+                    label[for="condition_area_code_15"] 山梨
+                  span
+                    = f.check_box :area_code, {multiple: true}, '20', nil
+                    label[for="condition_area_code_16"] 長野
+                  span
+                    = f.check_box :area_code, {multiple: true}, '22', nil
+                    label[for="condition_area_code_17"] 静岡
+            li
+              dl
+                dt.subTtl
+                  = f.check_box :area_code, {multiple: true}, '103', nil
+                  label[for="condition_area_code_103"] 北陸
+                  .subTtl__btn
+                    span
+                    span
+                dd.list
+                  span
+                    = f.check_box :area_code, {multiple: true}, '15', nil
+                    label[for="condition_area_code_15"] 新潟
+                  span
+                    = f.check_box :area_code, {multiple: true}, '16', nil
+                    label[for="condition_area_code_16"] 富山
+                  span
+                    = f.check_box :area_code, {multiple: true}, '17', nil
+                    label[for="condition_area_code_17"] 石川
+                  span
+                    = f.check_box :area_code, {multiple: true}, '18', nil
+                    label[for="condition_area_code_18"] 福井
+            li
+              dl
+                dt.subTtl
+                  = f.check_box :area_code, {multiple: true}, '104', nil
+                  label[for="condition_area_code_104"] 中部
+                  .subTtl__btn
+                    span
+                    span
+                dd.list
+                  span
+                    = f.check_box :area_code, {multiple: true}, '21', nil
+                    label[for="condition_area_code_21"] 岐阜
+                  span
+                    = f.check_box :area_code, {multiple: true}, '23', nil
+                    label[for="condition_area_code_23"] 愛知
+                  span
+                    = f.check_box :area_code, {multiple: true}, '24', nil
+                    label[for="condition_area_code_24"] 三重
+            li
+              dl
+                dt.subTtl
+                  = f.check_box :area_code, {multiple: true}, '105', nil
+                  label[for="condition_area_code_105"] 近畿
+                  .subTtl__btn
+                    span
+                    span
+                dd.list
+                  span
+                    = f.check_box :area_code, {multiple: true}, '25', nil
+                    label[for="condition_area_code_25"] 滋賀
+                  span
+                    = f.check_box :area_code, {multiple: true}, '26', nil
+                    label[for="condition_area_code_26"] 京都
+                  span
+                    = f.check_box :area_code, {multiple: true}, '27', nil
+                    label[for="condition_area_code_27"] 大阪
+                  span
+                    = f.check_box :area_code, {multiple: true}, '28', nil
+                    label[for="condition_area_code_28"] 兵庫
+                  span
+                    = f.check_box :area_code, {multiple: true}, '29', nil
+                    label[for="condition_area_code_29"] 奈良
+                  span
+                    = f.check_box :area_code, {multiple: true}, '30', nil
+                    label[for="condition_area_code_30"] 和歌山
+            li
+              dl
+                dt.subTtl
+                  = f.check_box :area_code, {multiple: true}, '106', nil
+                  label[for="condition_area_code_106"] 中国
+                  .subTtl__btn
+                    span
+                    span
+                dd.list
+                  span
+                    = f.check_box :area_code, {multiple: true}, '31', nil
+                    label[for="condition_area_code_31"] 鳥取
+                  span
+                    = f.check_box :area_code, {multiple: true}, '32', nil
+                    label[for="condition_area_code_32"] 島根
+                  span
+                    = f.check_box :area_code, {multiple: true}, '33', nil
+                    label[for="condition_area_code_33"] 岡山
+                  span
+                    = f.check_box :area_code, {multiple: true}, '34', nil
+                    label[for="condition_area_code_34"] 広島
+                  span
+                    = f.check_box :area_code, {multiple: true}, '35', nil
+                    label[for="condition_area_code_35"] 山口
+            li
+              dl
+                dt.subTtl
+                  = f.check_box :area_code, {multiple: true}, '107', nil
+                  label[for="condition_area_code_107"] 四国
+                  .subTtl__btn
+                    span
+                    span
+                dd.list
+                  span
+                    = f.check_box :area_code, {multiple: true}, '36', nil
+                    label[for="condition_area_code_36"] 徳島
+                  span
+                    = f.check_box :area_code, {multiple: true}, '37', nil
+                    label[for="condition_area_code_37"] 香川
+                  span
+                    = f.check_box :area_code, {multiple: true}, '38', nil
+                    label[for="condition_area_code_38"] 愛媛
+                  span
+                    = f.check_box :area_code, {multiple: true}, '39', nil
+                    label[for="condition_area_code_39"] 高知
+            li
+              dl
+                dt.subTtl
+                  = f.check_box :area_code, {multiple: true}, '108', nil
+                  label[for="condition_area_code_108"] 九州・沖縄
+                  .subTtl__btn
+                    span
+                    span
+                dd.list
+                  span
+                    = f.check_box :area_code, {multiple: true}, '40', nil
+                    label[for="condition_area_code_40"] 福岡
+                  span
+                    = f.check_box :area_code, {multiple: true}, '41', nil
+                    label[for="condition_area_code_41"] 佐賀
+                  span
+                    = f.check_box :area_code, {multiple: true}, '42', nil
+                    label[for="condition_area_code_42"] 長崎
+                  span
+                    = f.check_box :area_code, {multiple: true}, '43', nil
+                    label[for="condition_area_code_43"] 熊本
+                  span
+                    = f.check_box :area_code, {multiple: true}, '44', nil
+                    label[for="condition_area_code_44"] 大分
+                  span
+                    = f.check_box :area_code, {multiple: true}, '45', nil
+                    label[for="condition_area_code_45"] 宮崎
+                  span
+                    = f.check_box :area_code, {multiple: true}, '46', nil
+                    label[for="condition_area_code_46"] 鹿児島
+                  span
+                    = f.check_box :area_code, {multiple: true}, '47', nil
+                    label[for="condition_area_code_47"] 沖縄
