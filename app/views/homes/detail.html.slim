@@ -13,82 +13,83 @@
               = image_tag('icon03')
               | 条件を絞り込む
       section
-        .main_contents
-          .inner
-            #card_wrap
-              .card
-                span.city 茨城県
-                h2.golf_place つくばゴルフ場
-                .imagebox
-                  =image_tag('img01', class: 'image')
+      .main_contents
+        .inner
+          #card_wrap
+            .card
+              span.city 茨城県
+              h2.golf_place つくばゴルフ場
+              .imagebox
+                =image_tag('img01', class: 'image')
 
-                a.click_link href="#"
-                  .star.star_4
-                    span.rate 4.0
-                  address.address-area 東京都 世田谷区太子堂4-24-15
-                  address.address-way 用賀ICから5km以内
-              ul.tab.flexbox
-                    li.active
-                      = image_tag('icon_plan')
-                      span.txt プラン
-                    li
-                      = image_tag('icon_detail')
-                      span.txt ゴルフ場詳細
-                    li
-                      = image_tag('icon_course')
-                      span.txt コース
-                    li
-                      = image_tag('icon_review')
-                      span.txt 口コミ
-                    li
-                      = image_tag('icon_access')
-                      span.txt アクセス
-              .contentsBottom
-                nav
+              a.click_link href="#"
+                .star.star_4
+                  span.rate 4.0
+                address.address-area 東京都 世田谷区太子堂4-24-15
+                address.address-way 用賀ICから5km以内
+            ul.tab.flexbox
+                  li.active
+                    = image_tag('icon_plan')
+                    span.txt プラン
+                  li
+                    = image_tag('icon_detail')
+                    span.txt ゴルフ場詳細
+                  li
+                    = image_tag('icon_course')
+                    span.txt コース
+                  li
+                    = image_tag('icon_review')
+                    span.txt 口コミ
+                  li
+                    = image_tag('icon_access')
+                    span.txt アクセス
+            .contentsBottom
+              nav
+                ul.flexbox
+                  li
+                    = image_tag('icon02')
+                    p#date 9月22日(日)
+              .planCard
+                .planTtl.flexbox
+                  = image_tag('gdo_logo')
+                  p 【TIME予約期間限定】◆[最新ナビ付]◆早め空枠限定◆2Ｂ割増無◆昼食付!!!
+                .planBottom.flexbox
                   ul.flexbox
                     li
-                      = image_tag('icon02')
-                      p#date 9月22日(日)
-                .planCard
-                  .planTtl.flexbox
-                    = image_tag('gdo_logo')
-                    p 【TIME予約期間限定】◆[最新ナビ付]◆早め空枠限定◆2Ｂ割増無◆昼食付!!!
-                  .planBottom.flexbox
-                    ul.flexbox
-                      li
-                        = image_tag('icon_sample')
-                      li
-                        = image_tag('icon_sample')
-                      li
-                        = image_tag('icon_sample')
-                      li
-                        = image_tag('icon_sample')
+                      = image_tag('icon_sample')
+                    li
+                      = image_tag('icon_sample')
+                    li
+                      = image_tag('icon_sample')
+                    li
+                      = image_tag('icon_sample')
 
-                    p.count 空枠：16
-                    p.price
-                      |5,980円
-                      span（総額 7,000円）
-                .planCard
-                  .planTtl.flexbox
-                    = image_tag('gdo_logo')
-                    p 【TIME予約期間限定】◆[最新ナビ付]◆早め空枠限定◆2Ｂ割増無◆昼食付!!!
-                  .planBottom.flexbox
-                    ul.flexbox
-                      li
-                        = image_tag('icon_sample')
-                      li
-                        = image_tag('icon_sample')
-                      li
-                        = image_tag('icon_sample')
-                      li
-                        = image_tag('icon_sample')
+                  p.count 空枠：16
+                  p.price
+                    |5,980円
+                    span（総額 7,000円）
+              .planCard
+                .planTtl.flexbox
+                  = image_tag('gdo_logo')
+                  p 【TIME予約期間限定】◆[最新ナビ付]◆早め空枠限定◆2Ｂ割増無◆昼食付!!!
+                .planBottom.flexbox
+                  ul.flexbox
+                    li
+                      = image_tag('icon_sample')
+                    li
+                      = image_tag('icon_sample')
+                    li
+                      = image_tag('icon_sample')
+                    li
+                      = image_tag('icon_sample')
 
-                    p.count 空枠：16
-                    p.price
-                      |5,980円
-                      span（総額 7,000円）
-
-
+                  p.count 空枠：16
+                  p.price
+                    |5,980円
+                    span（総額 7,000円）
+      section#dateList
+        div
+          <=== ここに取得データ表示 ==>
 
 
               /! card
