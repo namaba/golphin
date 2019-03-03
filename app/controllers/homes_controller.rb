@@ -19,6 +19,12 @@ class HomesController < ApplicationController
       end
   end
 
+  def detail
+    # 80111
+    @cource ||= RakutenWebService::Gora::CourseDetail.find(80111)
+    # @cource = RakutenWebService::Gora::CourseDetail.find(params[:golf_course_id])
+  end
+
   private
 
   def conditions_params
