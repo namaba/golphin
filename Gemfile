@@ -54,6 +54,7 @@ gem 'jquery-ui-rails'
 
 # スクレイピング用
 gem 'nokogiri'
+gem 'anemone'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
