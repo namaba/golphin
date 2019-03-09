@@ -1,3 +1,8 @@
+scss:
+  table {
+    border: 1px solid red;
+  }
+
 #detail
   #contents
       nav
@@ -13,107 +18,243 @@
               = image_tag('icon03')
               | 条件を絞り込む
       section
-        .main_contents
-          .inner
-            #card_wrap
-              .card
-                span.city 茨城県
-                h2.golf_place つくばゴルフ場
-                .imagebox
-                  =image_tag('img01', class: 'image')
+      .main_contents
+        .inner
+          #card_wrap
+            .card
+              span.city 茨城県
+              h2.golf_place つくばゴルフ場
+              .imagebox
+                =image_tag('img01', class: 'image')
 
-                a.click_link href="#"
-                  .star.star_4
-                    span.rate 4.0
-                  address.address-area 東京都 世田谷区太子堂4-24-15
-                  address.address-way 用賀ICから5km以内
-              ul.tab.flexbox
-                    li.active
-                      = image_tag('icon_plan')
-                      span.txt プラン
-                    li
-                      = image_tag('icon_detail')
-                      span.txt ゴルフ場詳細
-                    li
-                      = image_tag('icon_course')
-                      span.txt コース
-                    li
-                      = image_tag('icon_review')
-                      span.txt 口コミ
-                    li
-                      = image_tag('icon_access')
-                      span.txt アクセス
-              .contentsBottom
-                nav
+              a.click_link href="#"
+                .star.star_4
+                  span.rate 4.0
+                address.address-area 東京都 世田谷区太子堂4-24-15
+                address.address-way 用賀ICから5km以内
+            ul.tab.flexbox
+                  li.active
+                    = image_tag('icon_plan')
+                    span.txt プラン
+                  li
+                    = image_tag('icon_detail')
+                    span.txt ゴルフ場詳細
+                  li
+                    = image_tag('icon_course')
+                    span.txt コース
+                  li
+                    = image_tag('icon_review')
+                    span.txt 口コミ
+                  li
+                    = image_tag('icon_access')
+                    span.txt アクセス
+            .contentsBottom
+              nav
+                ul.flexbox
+                  li
+                    = image_tag('icon02')
+                    p#date 9月22日(日)
+              .planCard
+                .planTtl.flexbox
+                  = image_tag('gdo_logo')
+                  p 【TIME予約期間限定】◆[最新ナビ付]◆早め空枠限定◆2Ｂ割増無◆昼食付!!!
+                .planBottom.flexbox
                   ul.flexbox
                     li
-                      = image_tag('icon02')
-                      p#date 9月22日(日)
-                .planCard
-                  .planTtl.flexbox
-                    = image_tag('gdo_logo')
-                    p 【TIME予約期間限定】◆[最新ナビ付]◆早め空枠限定◆2Ｂ割増無◆昼食付!!!
-                  .planBottom.flexbox
-                    ul.flexbox
-                      li
-                        = image_tag('icon_sample')
-                      li
-                        = image_tag('icon_sample')
-                      li
-                        = image_tag('icon_sample')
-                      li
-                        = image_tag('icon_sample')
+                      = image_tag('icon_sample')
+                    li
+                      = image_tag('icon_sample')
+                    li
+                      = image_tag('icon_sample')
+                    li
+                      = image_tag('icon_sample')
 
-                    p.count 空枠：16
-                    p.price
-                      |5,980円
-                      span（総額 7,000円）
-                .planCard
-                  .planTtl.flexbox
-                    = image_tag('gdo_logo')
-                    p 【TIME予約期間限定】◆[最新ナビ付]◆早め空枠限定◆2Ｂ割増無◆昼食付!!!
-                  .planBottom.flexbox
-                    ul.flexbox
-                      li
-                        = image_tag('icon_sample')
-                      li
-                        = image_tag('icon_sample')
-                      li
-                        = image_tag('icon_sample')
-                      li
-                        = image_tag('icon_sample')
+                  p.count 空枠：16
+                  p.price
+                    |5,980円
+                    span（総額 7,000円）
+              .planCard
+                .planTtl.flexbox
+                  = image_tag('gdo_logo')
+                  p 【TIME予約期間限定】◆[最新ナビ付]◆早め空枠限定◆2Ｂ割増無◆昼食付!!!
+                .planBottom.flexbox
+                  ul.flexbox
+                    li
+                      = image_tag('icon_sample')
+                    li
+                      = image_tag('icon_sample')
+                    li
+                      = image_tag('icon_sample')
+                    li
+                      = image_tag('icon_sample')
 
-                    p.count 空枠：16
-                    p.price
-                      |5,980円
-                      span（総額 7,000円）
+                  p.count 空枠：16
+                  p.price
+                    |5,980円
+                    span（総額 7,000円）
+      section#dateList
+        table
+          caption クチコミ
+          tr
+            th クチコミ件数
+            td= @cource.rating_num
 
+        / デザインのため最初の1レコードだけ取得してます
+        table[style="margin-top: 30px;"]
+          caption 評価者のコメント
+          tr
+            th タイトル
+            td= @cource.ratings.first.title
+          tr
+            th 評価者のニックネーム
+            td= @cource.ratings.first.nick_name
+          tr
+            th 評価者の都道府県
+            td= @cource.ratings.first.nick_name
+          tr
+            th 評価者の年齢
+            td= @cource.ratings.first.age
+          tr
+            th 評価者の性別
+            td= @cource.ratings.first.sex
+          tr
+            th 評価者のGORA利用回数
+            td= @cource.ratings.first.times
+          tr
+            th 評価者の評価（総合）
+            td= @cource.ratings.first.evaluation
+          tr
+            th 評価者の評価（スタッフ）
+            td= @cource.ratings.first.staff
+          tr
+            th 評価者の評価（設備）
+            td= @cource.ratings.first.facility
+          tr
+            th 評価者の評価（食事）
+            td= @cource.ratings.first.meal
+          tr
+            th 評価者の評価（コース）
+            td= @cource.ratings.first.course
+          tr
+            th 評価者の評価(コストパフォーマンス)
+            td= @cource.ratings.first.costperformance
+          tr
+            th 評価者の評価(距離)
+            td= @cource.ratings.first.distance
+          tr
+            th 評価者の評価(フェアウェイの広さ)
+            td= @cource.ratings.first.fairway
+          tr
+            th 評価者のコメント
+            td= @cource.ratings.first.comment
 
+        table[style="margin-top: 30px;"]
+          caption ゴルフ場情報
+          tr
+            th ゴルフ場説明文
+            td= @cource.golf_course_caption
+          tr
+            th ゴルフ場からのお知らせ
+            td= @cource.information
+          tr
+            th 電話番号
+            td= @cource.telephone_no
+          tr
+            th 開場日
+            td= @cource.open_day
+          tr
+            th 休場日
+            td= @cource.close_day
+          tr
+            th 使用可能クレジットカード
+            td= @cource.credit_card
+          tr
+            th シューズ指定
+            td= @cource.shoes
+          tr
+            th 服装指定
+            td= @cource.dress_code
+          tr
+            th 付帯施設（練習場）
+            td= @cource.practice_facility
+          tr
+            th 付帯施設(宿泊施設)
+            td= @cource.lodging_facility
+          tr
+            th 付帯施設(その他)
+            td= @cource.other_facility
+          tr
+            th 設計者
+            td= @cource.designer
+          tr
+            th コース種別
+            td= @cource.course_type
+          tr
+            th コース高低
+            td= @cource.course_vertical_interval
+          tr
+            th 面積
+            td= @cource.dimension
+          tr
+            th グリーン
+            td= @cource.green
+          tr
+            th グリーン数
+            td= @cource.green_count
+          tr
+            th ホール数
+            td= @cource.hole_count
+          tr
+            th パー数
+            td= @cource.par_count
+          tr
+            th コース名
+            td= @cource.course_name
+          tr
+            th 距離
+            td= @cource.course_distance
+          tr
+            th ドラコン推奨ホール
+            td= @cource.long_driving_contest
 
+        table[style="margin-top: 30px;"]
+          caption アクセス
+          tr
+            th 最寄高速道路
+            td= @cource.highway
+          tr
+            th 最寄IC
+            td= @cource.ic
+          tr
+            th ICからの距離
+            td= @cource.ic_distance
+          tr
+            th 緯度
+            td= @cource.latitude
+          tr
+            th 軽度
+            td= @cource.longitude
+          tr
+            th 郵便番号
+            td= @cource.postal_code
+          tr
+            th 所在地
+            td= @cource.address
 
-              /! card
-              / .card
-              /   span.city 茨城県
-              /   h2.golf_place つくばゴルフ場
-              /   .imagebox
-              /     img.image alt="ゴルフ場の写真" src="./img/img02.png" /
-              /   a.click_link href="#"
-              /     .star.star_15
-              /       span.rate (1.5)
-              /     address.address-area 東京都 世田谷区太子堂4-24-15
-              /     address.address-way 用賀ICから5km以内
-              /     ul.price.flexbox
-              /       li
-              /         img alt="" src="./img/gdo_logo.png" /
-              /         = succeed "\u301C" do
-              /           span.gdo_price 6680円
-              /       li
-              /         img alt="" src="./img/jaran_logo.png" /
-              /         = succeed "\u301C" do
-              /           span.jaran_price 6680円
-              /       li
-              /         img alt="" src="./img/rakuten_logo.png" /
-              /         = succeed "\u301C" do
-              /           span.rakuten_price 6680円
-              /! card
-        /! main_contents
+        table[style="margin-top: 30px;"]
+          caption 画像
+          tr
+            th ゴルフ場画像URL1
+            td= image_tag @cource.golf_course_image_url1
+          tr
+            th ゴルフ場画像URL2
+            td= image_tag @cource.golf_course_image_url2
+          tr
+            th ゴルフ場画像URL3
+            td= image_tag @cource.golf_course_image_url3
+          tr
+            th ゴルフ場画像URL4
+            td= image_tag @cource.golf_course_image_url4
+          tr
+            th ゴルフ場画像URL5
+            td= image_tag @cource.golf_course_image_url5

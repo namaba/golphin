@@ -1,6 +1,6 @@
 .card
   span.city 茨城県
-  h2.golf_place つくばゴルフ場
+  h2.golf_place= plan['golfCourseName']
   .imagebox
     = image_tag("#{plan["golfCourseImageUrl"]}", class: 'image')
 
@@ -17,6 +17,7 @@
       li
         = image_tag('jaran_logo')
         span.jaran_price 6680円
-      li
-        = image_tag('rakuten_logo')
-        span.rakuten_price 6680円
+      li= link_to detail_homes_path(golf_course_id: plan['golfCourseId']), target: '_blank' do
+          = image_tag('rakuten_logo')
+          | 6680円
+          / span.rakuten_price 6680円
