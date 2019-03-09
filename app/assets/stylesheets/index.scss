@@ -29,6 +29,7 @@ body{
 // ヘッダー
 nav.navbar-dark {
   background-color: $color_white!important;
+  border-top: 2px solid $color_blue;
     h1.logo {
       background-color: #fff;
       max-width: 100%;
@@ -268,6 +269,7 @@ form {
       padding: 3% 0;
       border-radius: 10px;
       box-sizing: border-box;
+      box-shadow: 2px 2px 2px #999;
     }
     input {
       background-color: #00a0e9;
@@ -329,6 +331,7 @@ form {
         &:nth-of-type(2){
           transform: rotate(-45deg);
         }
+
       }
 
     }
@@ -336,6 +339,10 @@ form {
       padding: 0!important;
       max-width: none!important;
       border:none!important;
+      label{
+        width: 70vw;
+        display: inline-block;
+      }
     }
     dt{
       position: relative;
