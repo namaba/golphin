@@ -1,6 +1,7 @@
 $reset_zero: 0;
 $color_white : #fff;
 $color_blue : #3cb6ee;
+$color_btn: #dcdcdc;
 $width : 100%;
 $margin_reset : 0 auto;
 /* iOSでのデフォルトスタイルをリセット */
@@ -15,7 +16,7 @@ input[type="button"] {
     &::-webkit-search-decoration {
       display: none;
     }
-    &::focus {
+    &:focus {
       outline-offset: -2px;
     }
 }
@@ -25,11 +26,23 @@ li {
 }
 body{
   font-family: "游ゴシック体", YuGothic, "Yu Gothic M", "游ゴシック Medium", "Yu Gothic Medium", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN W3", HiraKakuProN-W3, "ヒラギノ角ゴ ProN", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+  line-height: 1.6;
+
+  .alert{
+    background: #fc4b65;
+    width: 90%;
+    margin: 3vw auto;
+    border-radius: 5px;
+    padding:2vw 3vw;
+
+  }
 }
+
 // ヘッダー
 nav.navbar-dark {
   background-color: $color_white!important;
-  border-top: 2px solid $color_blue;
+  border-top: 3px solid $color_blue;
+  border-bottom: 2px solid #fbfbfb;
     h1.logo {
       background-color: #fff;
       max-width: 100%;
@@ -44,7 +57,7 @@ nav.navbar-dark {
   }
 // コンテンツ
 form {
-  border: 1px solid #f8f8f8;
+  border: 1px solid $color_btn;
   box-sizing: border-box;
   border-radius: 5px;
   // background: url('arrow.png')95% 50% no-repeat;
@@ -61,14 +74,14 @@ form {
     width: 95%;
     margin: $margin_reset;
     .intro {
-      border-top: 2px solid #fbfbfb;
       text-align: center;
       padding-top: 3%;
       padding-bottom: 3%;
+      font-size: 3.6vw;
     }
     #search{
         border: 1px solid #efefef;
-        border-radius: 12px;
+        border-radius: 3.4vw;
         box-shadow:0px 0px 10px 1px #f0f0f0;
       .inner {
         padding: 4% 3%;
@@ -89,13 +102,15 @@ form {
         background: url('logo_area.png') 4vw 3vw no-repeat;
         background-size: 8%;
         dd {
-          background: url('arrow.png') 96% 3.4vw no-repeat;
+          background: url('arrow.png') 95% 3.6vw no-repeat;
           background-size: 4vw;
           border: 1px solid #d3d3d3;
-          padding: 2.3vw 9vw 2.3vw 3vw;
+          padding: 1.5vw 9vw 1.5vw 3vw;
           border-radius: 5px;
-          max-width: 40vw;
-
+          max-width: 55vw;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
         }
       }
       #date{
@@ -104,16 +119,16 @@ form {
         margin-bottom: 7%;
         dd {
           padding-right: 1.5em;
-          background: url(arrow.png) 95% 3vw no-repeat;
+          background: url(arrow.png) 95% 3.4vw no-repeat;
           background-size: 4vw;
           border: 1px solid #d3d3d3;
           border-radius: 5px;
-          padding: 1vw 8vw 1vw 0vw;
+          padding: 1vw 0;
           input{
             font-size: 3.8vw;
-            background-color: #fff;
-            width: 26vw;
-            padding-left: 2vw;
+            background-color: transparent;
+            width: 33vw;
+            padding: 1vw 0 1vw 3vw;
             border:none;
           }
         }
@@ -140,6 +155,13 @@ form {
           display: inline-block;
           margin: 0 4%;
         }
+        select{
+          font-size: 3.4vw;
+          border-radius: 5px;
+          border: 1px solid #dcdcdc;
+          background: transparent;
+          padding: 1vw 1.5vw 1.5vw;
+        }
       }
       #time {
         display: block;
@@ -160,19 +182,26 @@ form {
         li {
           width: 23%;
           margin-right: 2%;
-          border: 1px solid #f8f8f8;
+          border: 1px solid $color_btn;
           border-radius: 5px;
-          font-size: 12px;
+          font-size: 3.4vw;
           text-align: center;
-          padding: 2% 3%;
           box-sizing: border-box;
-        }
-        li:nth-child(-n+4){
-          margin-bottom:5%;
-        }
-        li.active {
-          background-color: #3cb6ee;
-          color: #fff;
+          label{
+            display: block;
+            width: 100%;
+            padding: 1.5vw;
+            &.active{
+              background-color: #3cb6ee;
+              color: #fff;
+            }
+          }
+          input{
+            display: none;
+          }
+          &:nth-child(-n+4){
+            margin-bottom:5%;
+          }
         }
       }
       #option {
@@ -192,9 +221,9 @@ form {
         li {
           width: 31%;
           margin-right: 2%;
-          border: 1px solid #f8f8f8;
+          border: 1px solid $color_btn;
           border-radius: 5px;
-          font-size: 12px;
+          font-size: 3.4vw;
           padding: 2% 3%;
           box-sizing: border-box;
           text-align: center;
@@ -226,7 +255,7 @@ form {
           padding-left: 15%;
           background:url('logo_avoid.png')30% 0% no-repeat;
           background-size: contain;
-          font-size: 12px
+          font-size: 3.4vw
         }
         ul {
           padding:0;
@@ -237,9 +266,9 @@ form {
         li {
           width: 31%;
           margin-right: 2%;
-          border: 1px solid #f8f8f8;
+          border: 1px solid $color_btn;
           border-radius: 5px;
-          font-size: 12px;
+          font-size: 3.4vw;
           padding: 2%;
           box-sizing: border-box;
           text-align: center;
@@ -255,7 +284,7 @@ form {
 
     dt{
       width: auto;
-      font-size: 16px;
+      font-size: 4.5vw;
       margin-bottom: 4%;
       padding-left: 16%;
       box-sizing: border-box;;
@@ -265,7 +294,7 @@ form {
       width: 95%;
       margin-right: auto;
       margin-left: auto;
-      font-size: 18px;
+      font-size: 5vw;
       color: #fff;
       padding: 3% 0;
       border-radius: 10px;
@@ -282,12 +311,11 @@ form {
         background-position: 95% 50%;
         background-repeat: no-repeat;
         background-color: #efefef;
-        background-size: 16px;
+        background-size: 4.5vw;
         color: #000;
         text-align: center;
-        font-size: 14px;
-        padding: 5
-        % 0;
+        font-size: 4vw;
+        padding: 3% 0;
       }
     }
   }
@@ -296,7 +324,7 @@ form {
 // 都道府県選択
 .container #content .areaSelect {
   display: none;
-  border-radius: 12px;
+  border-radius: 10px;
   width: 100%;
   margin:0 auto;
   position: fixed;
@@ -312,6 +340,9 @@ form {
     right: 0;
     left: 0;
     overflow: scroll;
+    &__box{
+      margin-bottom: 15vw;
+    }
     .close_btn{
       position: absolute;
       top: 6.5vw;
@@ -340,6 +371,9 @@ form {
       padding: 0!important;
       max-width: none!important;
       border:none!important;
+      border-radius:0!important;
+      border-bottom-left-radius: 10px!important;
+      border-bottom-right-radius: 10px!important;
       label{
         width: 70vw;
         display: inline-block;
@@ -362,13 +396,13 @@ form {
      }
      dt.ttl {
       background-color: $color_blue;
-      font-size: 16px;
+      font-size: 4.5vw;
       font-weight: normal;
       color: #fff;
       margin-bottom: 0;
-      padding: 4vw 0 4vw 3vw;
-      border-top-left-radius : 12px;
-      border-top-right-radius : 12px;
+      padding: 4vw 0 3vw 4vw;
+      border-top-left-radius : 10px;
+      border-top-right-radius : 10px;
       position: relative;
     }
   }
@@ -384,11 +418,11 @@ form {
      }
   }
   .subTtl {
-    padding:1em 0.5em;
+    padding:4vw 3vw;
     margin-bottom: 0;
     background-color: #fff;
-    background-size: 16px;
     position: relative;
+
     // プラスマイナス切り替え
     &__btn{
       position: absolute;
@@ -397,12 +431,12 @@ form {
       right: 0;
       top: 0;
     span{
-      width: 3.5vw;
+      width: 4vw;
       height: 2px;
       position: absolute;
-      background: $color_blue;
-      right: 3vw;
-      top:5.5vw;
+      background: #3cb6ee;
+      right: 2.8vw;
+      top: 7vw;
       transition: .5s;
       &:nth-of-type(1){
         transform: rotate(0);
@@ -424,7 +458,7 @@ form {
   dd.list{
     display: none;
     span{
-      font-size: 15px;
+      font-size: 4vw;
       display: block;
       padding: 0.5em;
       padding-left: 1em;
@@ -436,10 +470,9 @@ form {
    }
   }
   ul{
-    border-bottom-left-radius : 12px;
-    border-bottom-right-radius : 12px;
+    border-bottom-left-radius : 10px;
+    border-bottom-right-radius : 10px;
     border-bottom: 1px solid #efefee;
-    padding-bottom: 3vw;
     background: #fff;
   }
   .overLay {
@@ -450,6 +483,36 @@ form {
   width:100%;
   height:100vh;
   z-index:10;
+}
+
+}
+body #ui-datepicker-div{
+  position: fixed!important;
+  top: 3vw!important;
+  left: 2.5%!important;
+  z-index: 99!important;
+  border-radius: 10px!important;
+  width: 95%;
+  padding: 0 .2em 0!important;
+  .ui-widget-header {
+    border: 1px solid $color_blue!important;
+    background: $color_blue!important;
+    color: #ffffff!important;
+    font-weight: normal!important;
+    font-size: 5vw;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 0!important;
+    border-bottom-right-radius: 0!important;
+    width: 102%;
+    position: relative;
+    left: -1%;
+}
+    td a,td span {
+    display: block;
+    padding: 2vw 0.2em;
+    text-align: right;
+    text-decoration: none;
 }
 }
 // フッター

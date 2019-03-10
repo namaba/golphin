@@ -7,6 +7,7 @@ body a {
 body .flexbox {
   display: flex;
   display: -ms-flexbox;
+  align-items: flex-start;
 }
 
 body #contents {
@@ -127,10 +128,10 @@ body #contents .main_contents .inner #card_wrap .card .city {
 }
 
 body #contents .main_contents .inner #card_wrap .card .golf_place {
-  display: inline-block;
   font-size: 5vw;
   font-weight: bold;
   vertical-align: middle;
+  width: 72vw;
 }
 
 body #contents .main_contents .inner #card_wrap .card .imagebox {

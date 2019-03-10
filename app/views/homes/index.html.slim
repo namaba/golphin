@@ -39,16 +39,30 @@
             dt スタート時間
             dd
               ul
-                li.active ~6時台
-                li= f.check_box :start_time_zone, {multiple: true}, '7', nil
+                li
+                  label[for="condition_start_time_zone_7"] ~6時台
+                  = f.check_box :start_time_zone, {multiple: true}, '6', nil
+                li
                   label[for="condition_start_time_zone_7"] 7時台
-                li= f.check_box :start_time_zone, {multiple: true}, '8', nil
+                  = f.check_box :start_time_zone, {multiple: true}, '7', nil
+                li
                   label[for="condition_start_time_zone_8"] 8時台
-                li 9時台
-                li 10時台
-                li 11時台
-                li 12時台
-                li 13時台~
+                  = f.check_box :start_time_zone, {multiple: true}, '8', nil
+                li
+                  label[for="condition_start_time_zone_9"] 9時台
+                  = f.check_box :start_time_zone, {multiple: true}, '9', nil
+                li
+                  label[for="condition_start_time_zone_10"] 10時台
+                  = f.check_box :start_time_zone, {multiple: true}, '10', nil
+                li
+                  label[for="condition_start_time_zone_11"] 11時台
+                  = f.check_box :start_time_zone, {multiple: true}, '11', nil
+                li
+                  label[for="condition_start_time_zone_12"] 12時台
+                  = f.check_box :start_time_zone, {multiple: true}, '12', nil
+                li
+                  label[for="condition_start_time_zone_13"] 13時台~
+                  = f.check_box :start_time_zone, {multiple: true}, '13', nil
           dl#option
             dt オプション
             dd

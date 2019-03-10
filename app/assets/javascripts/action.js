@@ -1,12 +1,12 @@
 $(document).ready(function(){
   // スタート、オプション、除外時間選択
-  $('#time li').on('click',function(){
+  $('#time label').on('click',function(){
     $(this).toggleClass("active");
   });
-  $('#option li').on('click',function(){
+  $('#option label').on('click',function(){
     $(this).toggleClass("active");
   });
-  $('#avoid li').on('click',function(){
+  $('#avoid label').on('click',function(){
     $(this).toggleClass("active");
   });
 
@@ -27,14 +27,22 @@ $(document).ready(function(){
       $(this).toggleClass("subTtl__btn--open");
   });
 
-
+// 都道府県選択内の文字列取得
+    function getAres(){
+      var checkedArray = [];
+        $('input[name="condition[area_code][]"]:checked').siblings().each(function(i,e){checkedArray.push(e.innerText)});
+          return checkedArray.join(',');
+    }
 //Lightbox
   	$('#areaForm').click(function(){
   		$('.areaSelect').fadeIn();
   	});
   	$('.overLay, .close_btn').click(function(){
   		$('.areaSelect').fadeOut();
+      //文字列を吐き出す
+      if(getAres().length !== 0){
+        $('#areaForm').text(getAres());
+      }
   	});
-
 
 });
