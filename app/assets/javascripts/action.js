@@ -34,7 +34,7 @@ $(document).ready(function(){
           return checkedArray.join(',');
     }
 //Lightbox
-  	$('#areaForm').click(function(){
+  	$('#areaForm').on('click',function(){
   		$('.areaSelect').fadeIn();
   	});
   	$('.overLay, .close_btn').click(function(){
@@ -44,5 +44,10 @@ $(document).ready(function(){
         $('#areaForm').text(getAres());
       }
   	});
+
+    $('#date input').on('click',function(){
+      $('#ui-datepicker-div').before('<div class="overLay"></div>');
+
+    });
 
 });

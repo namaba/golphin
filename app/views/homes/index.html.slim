@@ -93,12 +93,14 @@ javascript:
   var ready;
 
   ready = function() {
+    $('.date-picker').datepicker().datepicker("setDate", new Date());
     var dateFormat;
     dateFormat = 'yy-mm-dd';
     return $('.date-picker').datepicker({
-      dateFormat: dateFormat,
-      minDate: 0
+      dateFormat: 'yy/mm/dd (DD)',
+      minDate: new Date(),
     });
+    $('.date-picker').datepicker("setDate", new Date());
   };
 
   $(document).ready(ready);
