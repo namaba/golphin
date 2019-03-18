@@ -1,31 +1,19 @@
 # require 'open-uri'
-# require 'nokogiri'
-
-# open("https://docs.ruby-lang.org/ja/2.5.0/doc/index.html") { |f|
-#   f.each_line {|line| p line}
-# }
-
-# doc = Nokogiri.HTML(open('http://nokogiri.org/'))
-#
-# doc.css('a').each do |element|
-#   puts element[:href]
-# end
-#
-
 require 'anemone'
-#
-# Anemone.crawl('https://www.yahoo.co.jp/') do |anemone|
-#   anemone.skip_links_like /admin/
-#   anemone.on_every_page do |page|
-#     puts page.url
-#   end
-# end
+require 'nokogiri'
+require 'kconv'
 
-Anemone.crawl('http://www.amazon.co.jp/gp/bestsellers/', :depth_limit => 1) do |anemone|
-  anemone.focus_crawl do |page|
-    page.links.keep_if { |link| link.to_s.match(/bestsellers/) }
-  end
+
+urls = []
+urls.push("https://www.amazon.co.jp/gp/bestsellers/books/466298/")
+urls.push("https://www.amazon.co.jp/gp/bestsellers/books/466282/")
+
+Anemone.crawl(urls, :depth_limit => 0) do |anemone|
   anemone.on_every_page do |page|
-    puts page.links
+    doc = Nokogiri::HTML.parse(page.body.toutf8)
+    puts doc.xpath("//*[@id='zg_browseRoot']")
+    category = doc.xpath("//*[@id='zg_browseRoot']/ul/li/a").text
+    sub_category = doc.xpath("//*[@id=\"zg_listTitle\"]/span").text
+    puts category + "/" + sub_category
   end
 end
