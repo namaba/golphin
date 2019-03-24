@@ -33,19 +33,19 @@ scss:
                 address.address-area 東京都 世田谷区太子堂4-24-15
                 address.address-way 用賀ICから5km以内
             ul.tab.flexbox
-                  li.active
+                  li#plan_tab.active
                     = image_tag('icon_plan')
                     span.txt プラン
-                  li
+                  li#clubInfo_tab
                     = image_tag('icon_detail')
                     span.txt ゴルフ場詳細
-                  li
+                  li#course_tab
                     = image_tag('icon_course')
                     span.txt コース
-                  li
+                  li#review_tab
                     = image_tag('icon_review')
                     span.txt 口コミ
-                  li
+                  li#access_tab
                     = image_tag('icon_access')
                     span.txt アクセス
             .contentsBottom
@@ -92,15 +92,10 @@ scss:
                   p.price
                     |5,980円
                     span（総額 7,000円）
-      section#dateList
-        table
-          caption クチコミ
-          tr
-            th クチコミ件数
-            td= @cource.rating_num
 
+      section#dateList
         / デザインのため最初の1レコードだけ取得してます
-        table[style="margin-top: 30px;"]
+        table#comment[style="margin-top: 30px;"]
           caption 評価者のコメント
           tr
             th タイトル
@@ -148,7 +143,7 @@ scss:
             th 評価者のコメント
             td= @cource.ratings.first.comment
 
-        table[style="margin-top: 30px;"]
+        table#courseInfo[style="margin-top: 30px;"]
           caption ゴルフ場情報
           tr
             th ゴルフ場説明文
@@ -217,7 +212,7 @@ scss:
             th ドラコン推奨ホール
             td= @cource.long_driving_contest
 
-        table[style="margin-top: 30px;"]
+        table#access[style="margin-top: 30px;"]
           caption アクセス
           tr
             th 最寄高速道路
@@ -241,7 +236,7 @@ scss:
             th 所在地
             td= @cource.address
 
-        table[style="margin-top: 30px;"]
+        table#pic[style="margin-top: 30px;"]
           caption 画像
           tr
             th ゴルフ場画像URL1

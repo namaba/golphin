@@ -17,6 +17,11 @@
 #detail #contents .main_contents .inner {
   width: 100%;
 }
+
+#detail #contents .main_contents .inner #card_wrap .tab{
+  cursor:pointer;
+}
+
 #detail #contents .main_contents .inner #card_wrap .tab li img {
   width: 8vw;
   display: block;
