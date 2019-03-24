@@ -1,226 +1,206 @@
-
-body a {
-  text-decoration: none;
-  color: #222;
-}
-
-body .flexbox {
-  display: flex;
-  display: -ms-flexbox;
-  align-items: flex-start;
-}
-
-body #contents {
-  width: 100%;
-}
-
-body #contents nav {
-  margin: 2% auto;
-}
-
-body #contents nav ul {
-  width: 96%;
-  margin: 0 auto;
-  align-items: baseline;
-}
-
-body #contents nav ul p {
-  display: inline-block;
-}
-
-body #contents nav ul img {
-  width: 6vw;
-}
-
-body #contents nav ul li {
-  font-size: 4vw;
-  font-weight: bold;
-}
-
-body #contents nav ul li img {
-  padding-right: 0.7vw;
-  vertical-align: bottom;
-}
-
-body #contents nav ul li button {
-  border-style: none;
-  border-color: none;
-  border-image: none;
-  font-size: 3.6vw;
-  font-weight: bold;
-  background: none;
-  padding-left: 0;
+body {
+  a {
+    text-decoration: none;
+    color: #222;
+  }
+  .flexbox {
+    display: flex;
+    display: -ms-flexbox;
+    align-items: flex-start;
+  }
+  #contents {
+    width: 100%;
+    nav {
+      margin: 2% auto;
+      ul {
+        width: 96%;
+        margin: 0 auto;
+        align-items: baseline;
+        p {
+          display: inline-block;
+        }
+        img {
+          width: 6vw;
+        }
+        li {
+          font-size: 4vw;
+          font-weight: bold;
+          img {
+            padding-right: 0.7vw;
+            vertical-align: bottom;
+          }
+          button {
+            border-style: none;
+            border-color: none;
+            border-image: none;
+            font-size: 3.6vw;
+            font-weight: bold;
+            background: none;
+            padding-left: 0;
+          }
+          &:nth-of-type(2) {
+            margin-left: 3vw;
+          }
+          &:last-child {
+            margin: 0 0 0 auto;
+          }
+        }
+      }
+    }
+    .main_contents {
+      background: #eeeeee;
+      .inner {
+        width: 96%;
+        margin: 0 auto;
+        .find_wrap {
+          justify-content: space-between;
+          -ms-flex-pack: justify;
+          padding: 2.3vw 0;
+          p {
+            font-size: 3.5vw;
+            margin-left: 2vw;
+            margin-top: 1vw;
+            #find {
+              font-size: 5vw;
+              padding-right: 3px;
+              color: #e60013;
+              font-weight: bold;
+            }
+          }
+          select {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            font-size: 3.3vw;
+            padding: 1.5vw 0 1.5vw 2vw;
+            width: 25vw;
+            outline: none;
+            border-radius: 3px;
+            box-shadow: 0px 2px 1px #999;
+            border: none;
+            background: url(arow_blue.png) no-repeat, #fff;
+            background-position: 95% 3vw;
+            background-size: 3vw;
+          }
+        }
+        #card_wrap {
+          .card {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 2px 1px #999;
+            margin-bottom: 3vw;
+            padding: 3vw 0;
+            .city {
+              background: #00a0e9;
+              border-radius: 4px;
+              padding: 1.2vw 2vw;
+              font-size: 3.7vw;
+              font-weight: bold;
+              margin: 0 3vw;
+              color: #fff;
+              transform: translateY(-1vw);
+            }
+            .golf_place {
+              font-size: 5vw;
+              font-weight: bold;
+              vertical-align: middle;
+              width: 72vw;
+            }
+            .imagebox {
+              overflow: hidden;
+              height: 40vw;
+              margin: 3vw 0;
+              img {
+                width: 100%;
+              }
+            }
+        // リンクエリア
+            .click_link {
+              padding: 1px;
+              display: block;
+              padding: 0 3vw;
+              position: relative;
+              &::after{
+                content: '';
+                display: inline-block;
+                width: 2.5vw;
+                height: 2.5vw;
+                border-top: 2px solid #555;
+                border-right: 2px solid #555;
+                transform: rotate(45deg);
+                position: absolute;
+                right: 3vw;
+                top: 40%;
+              }
+              .star {
+                width: 35%;
+                height: 5vw;
+                background: url(star_sheet.png) no-repeat;
+                background-size: 32vw;
+                display: block;
+                position: relative;
+                .rate {
+                  position: absolute;
+                  left: 34vw;
+                  font-size: 4vw;
+                  top: 0;
+                }
+              }
+              .star_15 {
+                background-position: 0 -5vw;
+              }
+              .star_2 {
+                background-position: 0 -10vw;
+              }
+              .star_25 {
+                background-position: 0 -15vw;
+              }
+              .star_3 {
+                background-position: 0 -20vw;
+              }
+              .star_35 {
+                background-position: 0 -25vw;
+              }
+              .star_4 {
+                background-position: 0 -30.3vw;
+              }
+              .star_45 {
+                background-position: 0 -35.4vw;
+              }
+              .star_5 {
+                background-position: 0 -40.4vw;
+              }
+              address {
+                font-style: normal;
+                font-size: 3vw;
+                display: inline-block;
+                margin-right: 1vw;
+                margin: 2.5vw 1vw 2.5vw 0;
+              }
+              .price li {
+                color: #e60013;
+                font-weight: bold;
+                margin-right: 2vw;
+                font-size: 3.4vw;
+                img {
+                  width: 11vw;
+                  transform: translateY(1vw);
+                  margin-right: 1vw;
+                }
+              }
+            }
+          }
+          #rate_num {
+            width: 11vw;
+            transform: translateY(1vw);
+            margin-right: 1vw;
+          }
+        }
+      }
+    }
+  }
 }
 
 // body #contents nav ul li:first-child {
 //   transform: translateY(1vw);
 // }
-
-body #contents nav ul li:nth-of-type(2) {
-  margin-left: 3vw;
-}
-
-body #contents nav ul li:last-child {
-  margin: 0 0 0 auto;
-}
-
-body #contents .main_contents {
-  background: #eeeeee;
-}
-
-body #contents .main_contents .inner {
-  width: 96%;
-  margin: 0 auto;
-}
-
-body #contents .main_contents .inner .find_wrap {
-  justify-content: space-between;
-  -ms-flex-pack: justify;
-  padding: 2.3vw 0;
-}
-
-body #contents .main_contents .inner .find_wrap p {
-  font-size: 3.5vw;
-  margin-left: 2vw;
-  margin-top: 1vw;
-}
-
-body #contents .main_contents .inner .find_wrap p #find {
-  font-size: 5vw;
-  padding-right: 3px;
-  color: #e60013;
-  font-weight: bold;
-}
-
-body #contents .main_contents .inner .find_wrap select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  font-size: 3.3vw;
-  padding: 1.5vw 0 1.5vw 2vw;
-  width: 25vw;
-  outline: none;
-  border-radius: 3px;
-  box-shadow: 0px 2px 1px #999;
-  border: none;
-  background: url(arow_blue.png) no-repeat, #fff;
-  background-position: 95% 3vw;
-  background-size: 3vw;
-}
-
-body #contents .main_contents .inner #card_wrap .card {
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0px 2px 1px #999;
-  margin-bottom: 3vw;
-  padding: 3vw 0;
-}
-
-body #contents .main_contents .inner #card_wrap .card .city {
-  background: #00a0e9;
-  border-radius: 4px;
-  padding: 1.2vw 2vw;
-  font-size: 3.7vw;
-  font-weight: bold;
-  margin: 0 3vw;
-  color: #fff;
-  transform: translateY(-1vw);
-}
-
-body #contents .main_contents .inner #card_wrap .card .golf_place {
-  font-size: 5vw;
-  font-weight: bold;
-  vertical-align: middle;
-  width: 72vw;
-}
-
-body #contents .main_contents .inner #card_wrap .card .imagebox {
-  overflow: hidden;
-  height: 40vw;
-  margin: 3vw 0;
-}
-
-body #contents .main_contents .inner #card_wrap .card .imagebox img {
-  width: 100%;
-}
-
-body #contents .main_contents .inner #card_wrap .card .click_link {
-  padding: 1px;
-  display: block;
-  padding: 0 3vw;
-}
-
-body #contents .main_contents .inner #card_wrap .card .click_link .star {
-  width: 35%;
-  height: 5vw;
-  background: url(star_sheet.png) no-repeat;
-  background-size: 32vw;
-  display: block;
-  position: relative;
-}
-
-body #contents .main_contents .inner #card_wrap .card .click_link .star .rate {
-  position: absolute;
-  left: 34vw;
-  font-size: 4vw;
-  top: 20%;
-}
-
-body #contents .main_contents .inner #card_wrap .card .click_link .star_15 {
-  background-position: 0 -5vw;
-}
-
-body #contents .main_contents .inner #card_wrap .card .click_link .star_2 {
-  background-position: 0 -10vw;
-}
-
-body #contents .main_contents .inner #card_wrap .card .click_link .star_25 {
-  background-position: 0 -15vw;
-}
-
-body #contents .main_contents .inner #card_wrap .card .click_link .star_3 {
-  background-position: 0 -20vw;
-}
-
-body #contents .main_contents .inner #card_wrap .card .click_link .star_35 {
-  background-position: 0 -25vw;
-}
-
-body #contents .main_contents .inner #card_wrap .card .click_link .star_4 {
-  background-position: 0 -30.3vw;
-}
-
-body #contents .main_contents .inner #card_wrap .card .click_link .star_45 {
-  background-position: 0 -35.4vw;
-}
-
-body #contents .main_contents .inner #card_wrap .card .click_link .star_5 {
-  background-position: 0 -40.4vw;
-}
-
-body #contents .main_contents .inner #card_wrap .card .click_link address {
-  font-style: normal;
-  font-size: 3vw;
-  display: inline-block;
-  margin-right: 1vw;
-  margin: 2.5vw 1vw 2.5vw 0;
-}
-
-body #contents .main_contents .inner #card_wrap .card .click_link .price li {
-  color: #e60013;
-  font-weight: bold;
-  margin-right: 2vw;
-  font-size: 3.4vw;
-}
-
-body #contents .main_contents .inner #card_wrap .card .click_link .price li img {
-  width: 11vw;
-  transform: translateY(1vw);
-  margin-right: 1vw;
-}
-
-body #contents .main_contents .inner #card_wrap #rate_num {
-  width: 11vw;
-  transform: translateY(1vw);
-  margin-right: 1vw;
-}

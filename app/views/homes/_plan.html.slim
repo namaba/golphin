@@ -1,11 +1,11 @@
 .card
   .flexbox
-    span.city 茨城県
+    span.city= plan['prefecture']
     h2.golf_place= plan['golfCourseName']
   .imagebox
     = image_tag("#{plan["golfCourseImageUrl"]}", class: 'image')
 
-  a.click_link href="#"
+  a= link_to detail_homes_path(golf_course_id: plan['golfCourseId']), class: 'click_link', target: '_blank' do
     .star[class="star_#{plan['evaluation'].round}"]
       span.rate= plan['evaluation']
     address.address-area= @address_hash["#{plan.golf_course_id}"]
@@ -18,7 +18,8 @@
       li
         = image_tag('jaran_logo')
         span.jaran_price 6680円
-      li= link_to detail_homes_path(golf_course_id: plan['golfCourseId']), target: '_blank' do
-          = image_tag('rakuten_logo')
-          | 6680円
-          / span.rakuten_price 6680円
+      li
+        = image_tag('rakuten_logo')
+        span.rakuten_price 6680円
+
+        / = plan['displayWeekdayMinPrice']

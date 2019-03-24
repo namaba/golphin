@@ -24,8 +24,10 @@
 
         /! submit
         .detail_btn
-          p.more.btn
-            a さらに条件を指定する
+          a.more.btn
+            |さらに条件を指定する
+            span
+            span
         /! detail
         .detail
           dl#price
@@ -40,7 +42,7 @@
             dd
               ul
                 li
-                  label[for="condition_start_time_zone_7"] ~6時台
+                  label[for="condition_start_time_zone_6"] ~6時台
                   = f.check_box :start_time_zone, {multiple: true}, '6', nil
                 li
                   label[for="condition_start_time_zone_7"] 7時台
@@ -67,23 +69,41 @@
             dt オプション
             dd
               ul
-                li.active 昼食付き
-                li 2サム付き
-                li キャディ付き
-                li 昼食付き
-                li 2サム付き
-                li キャディ付き
+                li
+                  label[for="condition_plan_lunch"] 昼食付き
+                  = f.check_box :plan_lunch, {multiple: false}, '1', nil
+                li
+                  label[for="condition_plan_2sum"] 2サム付き
+                  = f.check_box :plan_2sum, {multiple: false}, '2', nil
+                li
+                  label[for="condition_plan_caddie"] キャディ付き
+                  = f.check_box :plan_caddie, {multiple: false},'3', nil
+
           dl#avoid
             dt 除外指定
-            dd.all 全て選択
+            dd#all
+              span
+              |全て選択
             dd
               ul
-                li.active 9Hプレー
-                li ジュニアプラン
-                li レッスン
-                li 宿泊プラン
-                li 2サム保証
-                li キャディ付き
+                li
+                  label[for="condition_plan_caddie"] 9Hプレー
+                  = f.check_box :plan_caddie, {multiple: false}, '1', nil
+                li
+                  label[for="condition_plan_caddie"] ジュニアプラン
+                  = f.check_box :plan_caddie, {multiple: true}, nil
+                li
+                  label[for="condition_plan_caddie"] レッスン
+                  = f.check_box :plan_caddie, {multiple: true}, nil
+                li
+                  label[for="condition_plan_caddie"] 宿泊プラン
+                  = f.check_box :plan_caddie, {multiple: true}, nil
+                li
+                  label[for="condition_plan_caddie"] 2サム保証
+                  = f.check_box :plan_caddie, {multiple: true}, nil
+                li
+                  label[for="condition_plan_caddie"] キャディ付き
+                  = f.check_box :plan_caddie, {multiple: true}, nil
       /! detail
     /! inner
     /! search
@@ -93,12 +113,14 @@ javascript:
   var ready;
 
   ready = function() {
+    $('.date-picker').datepicker().datepicker("setDate", new Date());
     var dateFormat;
     dateFormat = 'yy-mm-dd';
     return $('.date-picker').datepicker({
-      dateFormat: dateFormat,
-      minDate: 0
+      dateFormat: 'yy/mm/dd (DD)',
+      minDate: new Date(),
     });
+    $('.date-picker').datepicker("setDate", new Date());
   };
 
   $(document).ready(ready);

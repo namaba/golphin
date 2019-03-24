@@ -33,8 +33,11 @@ class HomesController < ApplicationController
       :min_price,
       :max_price,
       :plan_caddie,
+      :plan_2sum,
+      :plan_Lunch,
       area_code: [],
       start_time_zone: [],
+
       )
   end
 
@@ -63,6 +66,7 @@ class HomesController < ApplicationController
         planCaddie: @condition.plan_caddie,
         planLunch: @condition.plan_lunch,
         plan2sum: @condition.plan_2sum,
+
         # NGプラン対象
         # planCaddie：キャディ付
         # planCart：乗用カート有
