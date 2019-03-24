@@ -1,25 +1,20 @@
 $(document).ready(function(){
   // スタート、オプション、除外時間選択
-  $('#time label').on('click',function(){
-    $(this).toggleClass("active");
-  });
-  $('#option label').on('click',function(){
-    $(this).toggleClass("active");
-  });
-  $('#avoid label').on('click',function(){
-    $(this).toggleClass("active");
+  $('.detail label').on('click',function(){
+    if($(this).siblings('input').prop('checked')){
+      $(this).removeClass('active');
+    }else{
+      $(this).addClass('active');
+    }
+    console.log($(this).siblings('input'));
   });
 
 
 //プラスマイナスボタン切り替え
   $('.more').on('click',function(){
       $('.detail').slideToggle('slow');
-      $(this).toggleClass("active_mark");
-      if ($(this).hasClass("active_mark")){
-        $(this).css('background-image', 'url(/assets/minus.png)');
-      } else {
-        $(this).css('background-image', 'url(/assets/plus.png)');
-      }
+      $(this).toggleClass("more--open");
+
   });
 
   $('.subTtl__btn').on('click',function(){
@@ -33,11 +28,12 @@ $(document).ready(function(){
         $('input[name="condition[area_code][]"]:checked').siblings().each(function(i,e){checkedArray.push(e.innerText)});
           return checkedArray.join(',');
     }
+
 //Lightbox
   	$('#areaForm').on('click',function(){
   		$('.areaSelect').fadeIn();
   	});
-  	$('.overLay, .close_btn').click(function(){
+  	$('#fade, .close_btn').click(function(){
   		$('.areaSelect').fadeOut();
       //文字列を吐き出す
       if(getAres().length !== 0){
@@ -49,5 +45,22 @@ $(document).ready(function(){
       $('#ui-datepicker-div').before('<div class="overLay"></div>');
 
     });
+
+
+// 除外プレーの全選択ボタン
+ var checkBox = $('#avoid').find('input')
+
+  $('#all').on("click",function(){
+    checkBox.addClass('fsdfsd');
+    $(this).toggleClass('selected');
+    checkBox.prop("checked", $(this).prop("checked"));
+    if(checkBox.prop('checked')){
+      checkBox.prop("checked", false);
+      checkBox.siblings('label').removeClass('active');
+    }else{
+      checkBox.prop("checked", true);
+      checkBox.siblings('label').addClass('active');
+    }
+  });
 
 });

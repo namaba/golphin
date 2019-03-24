@@ -27,7 +27,7 @@ li {
 body{
   font-family: "游ゴシック体", YuGothic, "Yu Gothic M", "游ゴシック Medium", "Yu Gothic Medium", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN W3", HiraKakuProN-W3, "ヒラギノ角ゴ ProN", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
   line-height: 1.6;
-
+  color: #222;
   .alert{
     background: #fc4b65;
     width: 90%;
@@ -69,6 +69,7 @@ form {
 .container {
   max-width: $width!important;
   padding:$reset_zero!important;
+  font-size: 4vw;
   #content {
     max-width: $width;
     width: 95%;
@@ -200,7 +201,7 @@ form {
             display: none;
           }
           &:nth-child(-n+4){
-            margin-bottom:5%;
+            margin-bottom:2%;
           }
         }
       }
@@ -224,16 +225,24 @@ form {
           border: 1px solid $color_btn;
           border-radius: 5px;
           font-size: 3.4vw;
-          padding: 2% 3%;
           box-sizing: border-box;
           text-align: center;
+          label{
+            display: block;
+            width: 100%;
+            padding: 1.5vw;
+            &.active {
+              background-color: #3cb6ee;
+              color: #fff;
+            }
+          }
+        &:nth-child(-n+3){
+          margin-bottom:2%;
         }
-        li:nth-child(-n+3){
-          margin-bottom:5%;
+
+        input{
+          display: none;
         }
-        li.active {
-          background-color: #3cb6ee;
-          color: #fff;
         }
       }
       #avoid {
@@ -247,15 +256,36 @@ form {
         dd{
           margin:0;
         }
-        dd.all{
+        //全選択ボタン
+        #all{
           display: inline-block;
           text-align: right;
           display: inline-block;
           margin-left: 0;
           padding-left: 15%;
-          background:url('logo_avoid.png')30% 0% no-repeat;
           background-size: contain;
-          font-size: 3.4vw
+          font-size: 3.4vw;
+          span{
+            display: inline-block;
+            border-radius: 50%;
+            width: 5vw;
+            height: 5vw;
+            border:1px solid #999;
+            position: relative;
+            top: 1vw;
+            right: 2vw;
+          }
+          &.selected span::after{
+            content: "";
+            display: inline-block;
+            border-radius: 50%;
+            width: 3vw;
+            height: 3vw;
+            background: #fc4b65;
+            position: absolute;
+            top: .7vw;
+            right: .7vw;
+          }
         }
         ul {
           padding:0;
@@ -269,16 +299,24 @@ form {
           border: 1px solid $color_btn;
           border-radius: 5px;
           font-size: 3.4vw;
-          padding: 2%;
           box-sizing: border-box;
           text-align: center;
+          label{
+            display: block;
+            width: 100%;
+            padding: 1.5vw;
+            &.active {
+              background-color: #fd8898;
+              color: #fff;
+            }
+          }
+        &:nth-child(-n+3){
+          margin-bottom:2%;
         }
-        li:nth-child(-n+3){
-          margin-bottom:5%;
+
+        input{
+          display: none;
         }
-        li.active {
-          background-color: #fd8898;
-          color: #fff;
         }
       }
 
@@ -305,17 +343,38 @@ form {
       background-color: #00a0e9;
     }
     .detail_btn {
-          margin: 4% auto 7%;
+      margin: 4% auto 7%;
+
       .more {
-        background-image: url('plus.png');
-        background-position: 95% 50%;
-        background-repeat: no-repeat;
-        background-color: #efefef;
-        background-size: 4.5vw;
-        color: #000;
+        color: #222;
         text-align: center;
         font-size: 4vw;
         padding: 3% 0;
+        position: relative;
+        span{
+          width: 4vw;
+          height: 2px;
+          position: absolute;
+          background: #3cb6ee;
+          right: 2.8vw;
+          top: 5vw;
+          transition: .5s;
+          &:nth-of-type(2){
+            transform: rotate(-90deg);
+          }
+        }
+        &--open span{
+          &:nth-of-type(1){
+            transform: rotate(90deg);
+            width: 0;
+          }
+          &:nth-of-type(2){
+
+            transform: rotate(0deg);
+          }
+
+        }
+
       }
     }
   }
@@ -329,10 +388,12 @@ form {
   margin:0 auto;
   position: fixed;
   top: 0;
-    left: 0;
+  left: 0;
+  z-index: 999;
   .modalContent{
     position: fixed;
-    z-index: 999;
+    z-index: 1000;
+
     width: 95%;
     height: 100%;
     margin: 0 auto;
@@ -340,8 +401,8 @@ form {
     right: 0;
     left: 0;
     overflow: scroll;
-    &__box{
-      margin-bottom: 15vw;
+    &__box #fade{
+      height:40vw;
     }
     .close_btn{
       position: absolute;
@@ -442,15 +503,17 @@ form {
         transform: rotate(0);
       }
       &:nth-of-type(2){
-        transform: rotate(90deg);
+        transform: rotate(-90deg);
       }
     }
-    &--open{
+    &--open {
       & span:nth-of-type(1){
-        transform: rotate(45deg)!important;
+        transform: rotate(90deg)!important;
+        width: 0;
       }
       & span:nth-of-type(2){
-        transform: rotate(-45deg)!important;
+        transform: rotate(0deg)!important;
+
       }
     }
     }
