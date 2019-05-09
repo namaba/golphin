@@ -23,15 +23,19 @@ scss:
           #card_wrap
             .card
               span.city 茨城県
-              h2.golf_place つくばゴルフ場
+              h2.golf_place= @cource.golf_course_name
               .imagebox
                 =image_tag('img01', class: 'image')
 
               a.click_link href="#"
                 .star.star_4
                   span.rate 4.0
-                address.address-area 東京都 世田谷区太子堂4-24-15
-                address.address-way 用賀ICから5km以内
+                address.address-area= @cource.address
+                address.address-way
+                  = @cource.highway
+                  = @cource.ic
+                  span ICから
+                  = @cource.ic_distance
             ul.tab.flexbox
                   li#plan_tab.active
                     = image_tag('icon_plan')
@@ -143,3 +147,4 @@ scss:
           tr
             th ゴルフ場画像URL5
             td= image_tag @cource.golf_course_image_url5
+/ = debug @ource

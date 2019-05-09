@@ -21,8 +21,8 @@ class HomesController < ApplicationController
 
   def detail
     # 80111
-    @cource ||= RakutenWebService::Gora::CourseDetail.find(80111)
-    # @cource = RakutenWebService::Gora::CourseDetail.find(params[:golf_course_id])
+    #@cource ||= RakutenWebService::Gora::CourseDetail.find(80111)
+     @cource = RakutenWebService::Gora::CourseDetail.find(params[:golf_course_id])
   end
 
   private

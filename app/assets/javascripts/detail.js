@@ -8,13 +8,6 @@ $(function() {
     $(this).addClass('active');
   });
 
-// function showUp(tab_name,content){
-//   if($('#review_tab').hasClass('active')){
-//     $('#comment').fadeIn();
-//   } else {
-//     $('#comment').fadeOut();
-//   }
-// }
 function tab_switch() {
   $('.tab').find('li').on('click',function(){
     var className = $(this).attr("id");
@@ -36,8 +29,3 @@ function tab_switch() {
 }
 tab_switch();
 });
-// $('.area').hover(function(){
-// 		$(this).find('.is-show_item a').css('colr','red');
-// 		$(this).next('.area-list').slideDown();
-// 		$('.area').not(this).next('.area-list').slideUp();
-// 	});
