@@ -108,3 +108,11 @@
       box-sizing: border-box;
       padding: 0% 2%;
 }
+
+// タブ関連
+#review,#comment {
+  display: none;
+}
+#dateList table {
+  display: none;
+}
