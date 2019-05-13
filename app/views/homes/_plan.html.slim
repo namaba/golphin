@@ -5,7 +5,7 @@
   .imagebox
     = image_tag("#{plan["golfCourseImageUrl"]}", class: 'image')
 
-  a= link_to detail_homes_path(golf_course_id: plan['golfCourseId']), class: 'click_link', target: '_blank' do
+  a= link_to detail_homes_path(golf_course_id: plan['golfCourseId']), class: 'click_link' do
     .star[class="star_#{plan['evaluation'].round}"]
       span.rate= plan['evaluation']
     address.address-area= @address_hash["#{plan.golf_course_id}"]

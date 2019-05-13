@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(function(){
   // スタート、オプション、除外時間選択
   $('.detail label').on('click',function(){
     if($(this).siblings('input').prop('checked')){
@@ -9,12 +9,10 @@ $(document).ready(function(){
     console.log($(this).siblings('input'));
   });
 
-
 //プラスマイナスボタン切り替え
   $('.more').on('click',function(){
       $('.detail').slideToggle('slow');
       $(this).toggleClass("more--open");
-
   });
 
   $('.subTtl__btn').on('click',function(){
@@ -22,31 +20,39 @@ $(document).ready(function(){
       $(this).toggleClass("subTtl__btn--open");
   });
 
-// 都道府県選択内の文字列取得
-    function getAres(){
-      var checkedArray = [];
-        $('input[name="condition[area_code][]"]:checked').siblings().each(function(i,e){checkedArray.push(e.innerText)});
-          return checkedArray.join(',');
-    }
-
-//Lightbox
+//モーダル表示
   	$('#areaForm').on('click',function(){
   		$('.areaSelect').fadeIn();
   	});
-  	$('#fade, .close_btn').click(function(){
+  	$('#fade_out, .close_btn').on('click',function(){
   		$('.areaSelect').fadeOut();
-      //文字列を吐き出す
+
+// 都道府県選択内の文字列取得
+      function getAres(){
+        var checkedArray = [];
+          $('input[name="condition[area_code][]"]:checked').siblings('label').each(function(i,e){
+            checkedArray.push(e.innerText)
+          });
+            return checkedArray.join();
+      }
+//都道府県選択内の文字列を吐き出す
       if(getAres().length !== 0){
         $('#areaForm').text(getAres());
+      }else{
+        $('#areaForm').text('全地域');
       }
   	});
 
-    $('#date input').on('click',function(){
-      $('#ui-datepicker-div').before('<div class="overLay"></div>');
+// カレンダー裏にオーバーレイをはる
+    $('#date dd').on('click',function(){
+      $('#date dd').addClass('on_datapicker');
+      $('.set_overLay').addClass('overLay');
 
     });
 
-
+    $('.ui-datepicker-calendar tbody, .set_overLay').on('click',function(){
+      $('footer').next('.overLay').removeClass('overLay');
+});
 // 除外プレーの全選択ボタン
  var checkBox = $('#avoid').find('input')
 
