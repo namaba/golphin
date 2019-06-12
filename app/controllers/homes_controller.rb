@@ -58,7 +58,7 @@ class HomesController < ApplicationController
   def search_plans
     area_code = @condition.area_code.join(',')
     start_time_zone = @condition.start_time_zone&.join(',')
-    ng_plan = @cndition.ng_plan.join(',')
+    ng_plan = @cndition&.ng_plan&.join(',')
     RWS::Gora::Plan.search(
         areaCode: area_code,
         playDate: @condition.play_date,
