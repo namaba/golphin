@@ -11,5 +11,4 @@ class Condition
   attribute :plan_2sum, :boolean
   attribute :plan_caddie, :boolean
   attribute :ng_plan, :string
-  
 end

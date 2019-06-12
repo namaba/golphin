@@ -35,6 +35,7 @@ class HomesController < ApplicationController
       :plan_caddie,
       :plan_2sum,
       :plan_Lunch,
+      :ng_plan,
       area_code: [],
       start_time_zone: [],
 
@@ -57,6 +58,7 @@ class HomesController < ApplicationController
   def search_plans
     area_code = @condition.area_code.join(',')
     start_time_zone = @condition.start_time_zone&.join(',')
+    ng_plan = @cndition.ng_plan.join(',')
     RWS::Gora::Plan.search(
         areaCode: area_code,
         playDate: @condition.play_date,
@@ -66,6 +68,7 @@ class HomesController < ApplicationController
         planCaddie: @condition.plan_caddie,
         planLunch: @condition.plan_lunch,
         plan2sum: @condition.plan_2sum,
+        NGPlan: ng_plan,
 
         # NGプラン対象
         # planCaddie：キャディ付
@@ -77,7 +80,6 @@ class HomesController < ApplicationController
         # planHalfRound：9Hプレー
         # planEarly：早朝プレー
         # 例:NGPlan=planCart,planLesson,planHalfRound
-        # NGPlan: 'planLesson,planHalfRound'
       )
     # @plans = RWS::Gora::Plan.search(areaCode: conditions_params['area_code'], playDate: conditions_params['play_date'], minPrice: 0, maxPrice: 25000)
   end
