@@ -26,4 +26,4 @@
             option value=""  高い順
             option value=""  おすすめ順
         #card_wrap
-          = render partial: 'plan', collection: @plans
+          = render partial: 'plan', collection: @plans, locals: { play_date: @condition.play_date.strftime("%-m月%-d日(#{wday})"), prefecture: plan['prefecture'] }

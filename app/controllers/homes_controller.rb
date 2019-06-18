@@ -2,6 +2,17 @@ class HomesController < ApplicationController
   before_action :build_condition, only: :results
   before_action :condition_check, only: :results
 
+  NG_PLANS = {
+              ng_caddie: 'planCaddie',
+              ng_cart: 'planCart',
+              ng_stay: 'planStay',
+              ng_lesson: 'planLesson',
+              ng_open_compe: 'planOpenCompe',
+              ng_regular_compe: 'planRegularCompe',
+              ng_half_round: 'planHalfRound',
+              ng_early: 'planEarly',
+            }
+
   def index
     @condition = Condition.new
   end
@@ -20,6 +31,8 @@ class HomesController < ApplicationController
   end
 
   def detail
+    @play_date = params[:play_date]
+    @prefecture = params[:prefecture]
     # 80111
     #@cource ||= RakutenWebService::Gora::CourseDetail.find(80111)
      @cource = RakutenWebService::Gora::CourseDetail.find(params[:golf_course_id])
@@ -58,7 +71,14 @@ class HomesController < ApplicationController
   def search_plans
     area_code = @condition.area_code.join(',')
     start_time_zone = @condition.start_time_zone&.join(',')
-    ng_plan = @cndition&.ng_plan&.join(',')
+    if @condition.ng_plan
+      ng_plans = []
+      @condition&.ng_plan.each do |n|
+        puts NG_PLANS[n.to_sym]
+        ng_plans << NG_PLANS[n.to_sym]
+      end
+      joined_ng_plans = ng_plans&.join(',')
+    end
     RWS::Gora::Plan.search(
         areaCode: area_code,
         playDate: @condition.play_date,
@@ -68,8 +88,7 @@ class HomesController < ApplicationController
         planCaddie: @condition.plan_caddie,
         planLunch: @condition.plan_lunch,
         plan2sum: @condition.plan_2sum,
-        NGPlan: ng_plan,
-
+        NGPlan: joined_ng_plans.presence,
         # NGプラン対象
         # planCaddie：キャディ付
         # planCart：乗用カート有

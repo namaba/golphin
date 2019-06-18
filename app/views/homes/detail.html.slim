@@ -9,10 +9,10 @@ scss:
         ul.flexbox
           li
            = image_tag('icon')
-           p#place 関東
+           p#place= @prefecture
           li
             = image_tag('icon02')
-            p#date 9月22日(日)
+            p#date= @play_date
           li
             button name="button" type="button"
               = image_tag('icon03')
