@@ -143,7 +143,7 @@ GEM
       pry (~> 0.10)
     public_suffix (3.0.3)
     puma (3.12.0)
-    rack (2.0.6)
+    rack (2.0.8)
     rack-lineprof (0.0.2)
       rack
       rblineprof (~> 0.3.1)
