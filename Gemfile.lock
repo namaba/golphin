@@ -142,7 +142,7 @@ GEM
       byebug (~> 10.0)
       pry (~> 0.10)
     public_suffix (3.0.3)
-    puma (3.12.0)
+    puma (3.12.2)
     rack (2.0.8)
     rack-lineprof (0.0.2)
       rack
@@ -274,7 +274,7 @@ DEPENDENCIES
   mysql2
   nokogiri
   pry-byebug
-  puma (~> 3.11)
+  puma (~> 3.12)
   rack-lineprof
   rack-mini-profiler
   rails (~> 5.2.2)
